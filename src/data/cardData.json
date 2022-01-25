@@ -1,0 +1,218 @@
+[
+  {
+    "value": 10,
+    "url": "/club-J.png"
+  },
+  {
+    "value": 10,
+    "url": "/club-Q.png"
+  },
+  {
+    "value": 10,
+    "url": "/club-K.png"
+  },
+  {
+    "value": 10,
+    "url": "/diamond-J.png"
+  },
+  {
+    "value": 10,
+    "url": "/diamond-Q.png"
+  },
+  {
+    "value": 10,
+    "url": "/diamond-K.png"
+  },
+  {
+    "value": 10,
+    "url": "/heart-J.png"
+  },
+  {
+    "value": 10,
+    "url": "/heart-Q.png"
+  },
+  {
+    "value": 10,
+    "url": "/heart-K.png"
+  },
+  {
+    "value": 10,
+    "url": "/spade-J.png"
+  },
+  {
+    "value": 10,
+    "url": "/spade-Q.png"
+  },
+  {
+    "value": 10,
+    "url": "/spade-K.png"
+  },
+  {
+    "value": 2,
+    "url": "/club-2.svg"
+  },
+  {
+    "value": 3,
+    "url": "/club-3.svg"
+  },
+  {
+    "value": 4,
+    "url": "/club-4.svg"
+  },
+  {
+    "value": 5,
+    "url": "/club-5.svg"
+  },
+  {
+    "value": 6,
+    "url": "/club-6.svg"
+  },
+  {
+    "value": 7,
+    "url": "/club-7.svg"
+  },
+  {
+    "value": 8,
+    "url": "/club-8.svg"
+  },
+  {
+    "value": 9,
+    "url": "/club-9.svg"
+  },
+  {
+    "value": 10,
+    "url": "/club-10.svg"
+  },
+  {
+    "value": 11,
+    "secondary-value": 1,
+    "url": "/club-A.svg",
+    "type": "ace"
+  },
+  {
+    "value": 2,
+    "url": "/diamond-2.svg"
+  },
+  {
+    "value": 3,
+    "url": "/diamond-3.svg"
+  },
+  {
+    "value": 4,
+    "url": "/diamond-4.svg"
+  },
+  {
+    "value": 5,
+    "url": "/diamond-5.svg"
+  },
+  {
+    "value": 6,
+    "url": "/diamond-6.svg"
+  },
+  {
+    "value": 7,
+    "url": "/diamond-7.svg"
+  },
+  {
+    "value": 8,
+    "url": "/diamond-8.svg"
+  },
+  {
+    "value": 9,
+    "url": "/diamond-9.svg"
+  },
+  {
+    "value": 10,
+    "url": "/diamond-10.svg"
+  },
+  {
+    "value": 11,
+    "secondary-value": 1,
+    "url": "/diamond-A.svg",
+    "type": "ace"
+  },
+  {
+    "value": 2,
+    "url": "/heart-2.svg"
+  },
+  {
+    "value": 3,
+    "url": "/heart-3.svg"
+  },
+  {
+    "value": 4,
+    "url": "/heart-4.svg"
+  },
+  {
+    "value": 5,
+    "url": "/heart-5.svg"
+  },
+  {
+    "value": 6,
+    "url": "/heart-6.svg"
+  },
+  {
+    "value": 7,
+    "url": "/heart-7.svg"
+  },
+  {
+    "value": 8,
+    "url": "/heart-8.svg"
+  },
+  {
+    "value": 9,
+    "url": "/heart-9.svg"
+  },
+  {
+    "value": 10,
+    "url": "/heart-10.svg"
+  },
+  {
+    "value": 11,
+    "secondary-value": 1,
+    "url": "/heart-A.svg",
+    "type": "ace"
+  },
+  {
+    "value": 2,
+    "url": "/spade-2.svg"
+  },
+  {
+    "value": 3,
+    "url": "/spade-3.svg"
+  },
+  {
+    "value": 4,
+    "url": "/spade-4.svg"
+  },
+  {
+    "value": 5,
+    "url": "/spade-5.svg"
+  },
+  {
+    "value": 6,
+    "url": "/spade-6.svg"
+  },
+  {
+    "value": 7,
+    "url": "/spade-7.svg"
+  },
+  {
+    "value": 8,
+    "url": "/spade-8.svg"
+  },
+  {
+    "value": 9,
+    "url": "/spade-9.svg"
+  },
+  {
+    "value": 10,
+    "url": "/spade-10.svg"
+  },
+  {
+    "value": 11,
+    "secondary-value": 1,
+    "url": "/spade-A.svg",
+    "type": "ace"
+  }
+]

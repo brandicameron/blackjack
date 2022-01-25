@@ -1,0 +1,20 @@
+.header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95vw;
+  height: 100px;
+  justify-content: space-between;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.icon {
+  width: auto;
+  height: 30px;
+}
+
+.how-link:hover > .icon {
+  transition: 250ms linear;
+  transform: scale(1.05);
+}

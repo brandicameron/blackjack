@@ -1,0 +1,26 @@
+[
+  {
+    "value": 1,
+    "url": "/chip-1.png"
+  },
+  {
+    "value": 5,
+    "url": "/chip-5.png"
+  },
+  {
+    "value": 25,
+    "url": "/chip-25.png"
+  },
+  {
+    "value": 50,
+    "url": "/chip-50.png"
+  },
+  {
+    "value": 100,
+    "url": "/chip-100.png"
+  },
+  {
+    "value": 500,
+    "url": "/chip-500.png"
+  }
+]

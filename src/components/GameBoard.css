@@ -1,0 +1,40 @@
+.game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-btns {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 60vw;
+  max-width: 791px;
+  /* top: 0; */
+  /* left: 0; */
+}
+
+.card-hands {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  padding: 5vh 0;
+}
+
+@media screen and (max-width: 600px) {
+  .card-hands {
+    padding: 10vh 0;
+    padding-bottom: calc(10rem + env(safe-area-inset-bottom));
+  }
+
+  .game-btns {
+    margin-top: -40px;
+    width: 90vw;
+  }
+}

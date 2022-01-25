@@ -1,0 +1,58 @@
+:root {
+  --gradient: linear-gradient(
+    52deg,
+    rgb(47, 69, 235) 0%,
+    rgb(58, 95, 238) 63%,
+    rgb(77, 154, 255) 100%
+  );
+  --border-radius: 15px;
+  --backer-opacity: 45%;
+  --dotted-border: 2px dotted #fff;
+  --blk40: rgba(0, 0, 0, 0.2);
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-h-w {
+  height: 100vh;
+  width: 100vw;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.block {
+  display: block;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.display-text {
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+.lg-text {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .display-text {
+    font-size: 1.5rem;
+  }
+}

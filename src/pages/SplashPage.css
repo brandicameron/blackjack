@@ -1,0 +1,37 @@
+.splash-page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/splash-text.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.splash-page-graphic {
+  opacity: 0;
+  transform: scale(0);
+  margin: -30px 0 30px 0;
+  max-width: 90vw;
+  animation: grow 300ms ease-out forwards;
+}
+
+@keyframes grow {
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* @media screen and (orientation: landscape) and (pointer: coarse) and (max-height: 500px) {
+  .splash-page-content {
+    margin-top: -90px;
+    transform: scale(0.45);
+  }
+} */
+
+@media screen and (max-width: 600px) {
+  .splash-page {
+    background-position: -350px;
+    padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+  }
+}

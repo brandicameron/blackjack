@@ -1,0 +1,28 @@
+.winner-modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  /* background: radial-gradient(transparent, transparent); */
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  /* animation: spotlight 1000ms linear forwards; */
+}
+
+/* @keyframes spotlight {
+  100% {
+    background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.95) 70%);
+  }
+} */
+
+.winner-message {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
