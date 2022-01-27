@@ -26,6 +26,8 @@ export default function GameBoard({
     .slice(1)
     .reduce((total, obj) => obj.value + total, 0);
 
+  console.log(shuffledCards);
+
   // ************************************ INITIAL DEAL ************************************
   const dealInitialHand = () => {
     let cardsForInitialDeal = shuffledCards.slice(
@@ -33,14 +35,14 @@ export default function GameBoard({
       numCardsPlayed + 4
     );
 
-    let dealerTempArray = [];
+    let playerTempArray = [];
     for (let i = 0; i < 4; i += 2) {
-      dealerTempArray.push(cardsForInitialDeal[i]);
+      playerTempArray.push(cardsForInitialDeal[i]);
     }
 
-    let playerTempArray = [];
+    let dealerTempArray = [];
     for (let i = 1; i < 4; i += 2) {
-      playerTempArray.push(cardsForInitialDeal[i]);
+      dealerTempArray.push(cardsForInitialDeal[i]);
     }
 
     setDealerHand(dealerTempArray);
