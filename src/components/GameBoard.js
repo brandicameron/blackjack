@@ -26,8 +26,6 @@ export default function GameBoard({
     .slice(1)
     .reduce((total, obj) => obj.value + total, 0);
 
-  console.log(shuffledCards);
-
   // ************************************ INITIAL DEAL ************************************
   const dealInitialHand = () => {
     let cardsForInitialDeal = shuffledCards.slice(

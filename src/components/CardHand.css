@@ -8,10 +8,10 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  -webkit-transition: transform 0.6s;
   transition: transform 0.6s;
-  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  /* Below fixes weird safari bug that caused flipped card to show on top instead of bottom of stack */
+  -webkit-transform: translateZ(-1000px);
 }
 
 .flipped {
@@ -22,7 +22,6 @@
 .card-back,
 .card-front {
   position: absolute;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   width: 100%;
   height: 100%;
@@ -36,7 +35,6 @@
 }
 
 .card-front {
-  -webkit-transform: rotateY(-180deg);
   transform: rotateY(-180deg);
 }
 
@@ -49,7 +47,6 @@
 
 .hand-total {
   position: absolute;
-  /* left: -80%; */
   right: -160%;
   top: 25%;
   background-color: var(--blk40);
@@ -62,22 +59,11 @@
   line-height: 90%;
 }
 
-.card.hidden-card {
-  -webkit-overflow-scrolling: auto !important;
-}
-
 @media screen and (max-width: 600px) {
   .card-hand {
     width: 100px;
     height: 150px;
   }
-
-  /* fix this mess */
-  /* .card.hidden-card {
-    position: relative;
-    border: 2px solid red;
-    z-index: -10;
-  } */
 
   .hand-total {
     right: -130%;

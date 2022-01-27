@@ -13,9 +13,7 @@ export default function CardHand({
         playerOrDealer.map((card, index) => (
           <div
             className={
-              index === 0 && dealerFlip === false
-                ? 'card hidden-card'
-                : 'card flipped'
+              index === 0 && dealerFlip === false ? 'card' : 'card flipped'
             }
             key={`${card.url}-${player}-${index}`}
             style={{ left: `${index * 30}px`, top: `${index * 5}px` }}
