@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './Bet.css';
-// import { v4 as uuidv4 } from 'uuid';
 import Button from '../components/Button';
 
 export default function Bet({

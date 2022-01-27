@@ -43,22 +43,6 @@ export default function GameBoard({
       playerTempArray.push(cardsForInitialDeal[i]);
     }
 
-    //aces testing code
-    // setDealerHand([
-    //   {
-    //     value: 11,
-    //     'secondary-value': 1,
-    //     url: '/spade-A.svg',
-    //     type: 'ace',
-    //   },
-    //   {
-    //     value: 11,
-    //     'secondary-value': 1,
-    //     url: '/heart-A.svg',
-    //     type: 'ace',
-    //   },
-    // ]);
-
     setDealerHand(dealerTempArray);
     setPlayerHand(playerTempArray);
     setNumCardsPlayed((prev) => prev + 4);
@@ -69,7 +53,7 @@ export default function GameBoard({
   }, []);
 
   useEffect(() => {
-    // handles if dealer gets 2 aces on inital deal
+    // handles if 2 aces get dealt on inital deal
     if (dealerHand.length > 0) {
       if (dealerHand[0].value === 11 && dealerHand[1].value === 11) {
         dealerHand[0].value = 1;
@@ -77,113 +61,90 @@ export default function GameBoard({
     }
   }, [dealerHand]);
 
-  // ************************************ SET & DISPLAY HAND TOTALS ************************************
   useEffect(() => {
-    // setPlayerTotal(21); //testing blackjack payout
+    // handles if 2 aces get dealt on inital deal
+    if (playerHand.length > 0) {
+      if (playerHand[0].value === 11 && playerHand[1].value === 11) {
+        playerHand[0].value = 1;
+      }
+    }
+    playerHandTotal = playerHand.reduce((total, obj) => obj.value + total, 0);
+  }, [playerHand]);
+
+  // ************************************ SET & DISPLAY HAND TOTALS ************************************
+  // sets and displays players hand total
+  useEffect(() => {
     setPlayerTotal(playerHandTotal);
   }, [playerHand]);
 
-  // sets and displays dealers hand - true hand total only after player selects "Stay" and dealerFlip is triggered
+  // sets and displays dealers hand total
   useEffect(() => {
     dealerFlip
       ? setDealerTotal(dealerTrueTotal)
       : setDealerTotal(dealerHiddenTotal);
   }, [dealerHand, dealerFlip]);
 
-  const handleAces = (whosHandTotal, whosHand, setWhosTotal) => {
-    console.log('handle aces ran');
-    let aces = [];
-    let newTotal = whosHandTotal;
-    let numCardsToAdjust;
+  // ************************************ HANDLE ACES ************************************
 
-    whosHand.map((card) => {
-      if (card.type === 'ace') {
-        aces.push(card);
-      }
-    });
+  const handleAces = (hand, handTotal, setHand) => {
+    setNumCardsPlayed((prev) => prev + 1);
+    let findAce = hand.find((card) => card.value === 11);
 
-    if (aces.length === 1 && newTotal > 21) {
-      setWhosTotal(whosHandTotal - aces.length * 10);
-    }
-
-    if (aces.length > 1) {
-      numCardsToAdjust = aces.length - 1;
-      newTotal = whosHandTotal - numCardsToAdjust * 10;
-      setWhosTotal(newTotal);
-    }
-
-    if (aces.length > 1 && newTotal > 21) {
-      setWhosTotal(whosHandTotal - aces.length * 10);
+    if (
+      handTotal + shuffledCards[numCardsPlayed].value > 21 &&
+      findAce !== undefined
+    ) {
+      //handle changing value of initally dealt ace if needed
+      findAce.value = 1;
+      setHand((prev) => [...prev, shuffledCards[numCardsPlayed]]);
+    } else if (
+      //handle changing value of currently dealt ace if needed
+      shuffledCards[numCardsPlayed].value === 11 &&
+      handTotal + shuffledCards[numCardsPlayed].value > 21
+    ) {
+      shuffledCards[numCardsPlayed].value = 1;
+      setHand((prev) => [...prev, shuffledCards[numCardsPlayed]]);
+    } else {
+      setHand((prev) => [...prev, shuffledCards[numCardsPlayed]]);
     }
   };
 
-  // handles player aces
-  useEffect(() => {
-    handleAces(playerHandTotal, playerHand, setPlayerTotal);
-  }, [playerHand]);
+  // ************************************ HANDLE HIT BUTTON ************************************
 
-  // ************************************ HANDLE HIT & STAY BUTTONS ************************************
+  const handleHitMe = () => {
+    handleAces(playerHand, playerHandTotal, setPlayerHand);
+  };
+
+  // ************************************ HANDLE STAY BUTTON ************************************
 
   const handleStay = () => {
     setDealerFlip(true);
     setCompleteDealerHand(true);
 
-    let tempDealerTotal = dealerTrueTotal;
-    let tempNumCardsPlayed = numCardsPlayed;
-    let newCardsToBeDealt = [];
-
-    // set cards to be dealt to dealer after "Stay" clicked
-    while (tempDealerTotal < 17) {
-      tempNumCardsPlayed++;
-
-      //changes ace to 1 if new cards dealt pushes total over 21 (hopefully)
-      if (
-        dealerHand[0].value === 11 ||
-        (dealerHand[1].value === 11 &&
-          tempDealerTotal + shuffledCards[tempNumCardsPlayed].value > 21)
-      ) {
-        tempDealerTotal = tempDealerTotal - 10;
-        newCardsToBeDealt.push(shuffledCards[tempNumCardsPlayed]);
-      }
-
-      //deals with Aces, hopefully!
-      if (
-        shuffledCards[tempNumCardsPlayed].value === 11 &&
-        tempDealerTotal + shuffledCards[tempNumCardsPlayed].value > 21
-      ) {
-        shuffledCards[tempNumCardsPlayed].value = 1;
-        newCardsToBeDealt.push(shuffledCards[tempNumCardsPlayed]);
-      } else {
-        newCardsToBeDealt.push(shuffledCards[tempNumCardsPlayed]);
-      }
-
-      tempDealerTotal =
-        tempDealerTotal + shuffledCards[tempNumCardsPlayed].value;
+    if (dealerTrueTotal >= 17) {
+      scoreTheRound();
     }
-
-    // display cards dealt to dealer after stay
-    setTimeout(() => {
-      setNumCardsPlayed(tempNumCardsPlayed);
-      newCardsToBeDealt.map((card, index) => {
-        setTimeout(() => {
-          setDealerHand((prev) => [...prev, card]);
-        }, 1000 * index);
-      });
-    }, 1000);
-
-    // once dealer hits or exceeds 17, score the round
-    setTimeout(() => {
-      if (tempDealerTotal >= 17) {
-        dealerTrueTotal = tempDealerTotal; //must do this because dealerTotal doesn't update fast enough
-        scoreTheRound();
-      }
-    }, 1000 * newCardsToBeDealt.length);
   };
 
-  const handleHitMe = () => {
-    setNumCardsPlayed((prev) => prev + 1);
-    setPlayerHand((prev) => [...prev, shuffledCards[numCardsPlayed]]);
-  };
+  // HANDLE DEALING REST OF DEALERS HAND
+  useEffect(() => {
+    if (completeDealerHand === true && dealerTrueTotal < 17) {
+      let timer1 = setTimeout(() => {
+        handleAces(dealerHand, dealerTrueTotal, setDealerHand);
+      }, 1000);
+
+      return () => {
+        clearTimeout(timer1);
+      };
+    }
+  }, [completeDealerHand, dealerHand]);
+
+  // SCORE THE ROUND
+  useEffect(() => {
+    if (completeDealerHand === true && dealerTrueTotal >= 17) {
+      scoreTheRound();
+    }
+  }, [dealerTrueTotal]);
 
   // ************************************ SCORING ************************************
 
