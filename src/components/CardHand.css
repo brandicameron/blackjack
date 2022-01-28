@@ -14,6 +14,7 @@
   /* Below fixes weird safari bug that caused flipped card to show on top instead of bottom of stack */
   transform: translateZ(-1000px);
   -webkit-transform: translateZ(-1000px);
+  z-index: -1;
 }
 
 .flipped {
