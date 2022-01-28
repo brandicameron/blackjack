@@ -24,8 +24,8 @@ export default function CardHand({
                 src={require(`../images/cards${card.url}`)}
                 alt={card.value}
                 className='playing-card'
-                width='150'
-                height='209'
+                width='288'
+                height='403'
               />
             </div>
           </div>

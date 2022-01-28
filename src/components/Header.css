@@ -1,9 +1,7 @@
 .header {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 95vw;
-  height: 100px;
+  height: 90px;
   justify-content: space-between;
   margin: 0 auto;
   z-index: 10;

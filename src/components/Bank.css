@@ -14,12 +14,6 @@
 }
 
 .bank-total {
-  display: block;
-  border: none;
-  background-color: transparent;
-  color: inherit;
-  margin: 0;
-  padding: 0;
   padding-bottom: 0.7rem;
 }
 
@@ -34,7 +28,6 @@
 
 .chip-btn {
   position: relative;
-  width: 20vw;
   height: auto;
   max-width: 120px;
   max-height: 120px;
@@ -60,6 +53,7 @@
 @media screen and (max-width: 600px) {
   .bank {
     left: 0;
+    width: 100vw;
   }
 
   .tab {
@@ -68,21 +62,34 @@
   }
 
   .chip-container {
-    padding: 0.5rem;
+    display: flex;
+    padding: 1rem 0.5rem;
     gap: 10px;
+    border-radius: 0 0 0 0;
   }
 
   .chip-btn {
-    width: 18vw;
+    /* width: 15vw; */
   }
 
   .lower-bank {
-    transform: translateY(210px);
+    transform: translateY(190px);
   }
 }
 
 @media screen and (orientation: landscape) and (pointer: coarse) {
+  .chip-container {
+    display: flex;
+    padding: 1rem 2rem;
+    gap: 10px;
+  }
+
   .lower-bank {
-    transform: translateY(360px);
+    transform: translateY(340px);
+  }
+
+  .chip-btn {
+    max-width: 115px;
+    max-height: 115px;
   }
 }

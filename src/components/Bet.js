@@ -33,32 +33,34 @@ export default function Bet({
       {chipsBet.length === 0 && (
         <h1 className='instructions'>Select chips to place your bet...</h1>
       )}
-      <div className='chips-bet'>
+      <div className='chips-bet-container'>
         {chipsBet.map((chip, index) => (
-          <img
+          <button
+            className='chip-btn chip-bet'
             key={`${chip.value}-${index}`}
-            data-id={chip.id}
-            src={require(`../images${chip.url}`)}
-            alt='Poker chip'
-            className='chip-bet'
-            width='120'
-            height='120'
-            data-value={chip.value}
             style={{ left: `${index * 2}px`, bottom: `${index * 1}px` }}
-            //prevents player from changing bet once game is in play
-            onClick={beginRound ? undefined : handleChipRemove}
-          />
+          >
+            <img
+              src={require(`../images${chip.url}`)}
+              alt='Poker chip'
+              width='120'
+              height='120'
+              className='chip'
+              data-id={chip.id}
+              data-value={chip.value}
+              onClick={beginRound ? undefined : handleChipRemove}
+            />
+          </button>
         ))}
       </div>
       <h1 className='display-text bet-text'>
         Bet: <span className='bold'>${betAmount}</span>
       </h1>
       {chipsBet.length !== 0 && !beginRound && (
-        <Button
-          title='Deal'
-          size='btn-lg deal-btn'
-          clickHandler={handleBeginRound}
-        />
+        <div className='game-btns'>
+          <div className='empty-element-for-flex-btn-positioning'></div>
+          <Button title='Deal' size='btn-lg' clickHandler={handleBeginRound} />
+        </div>
       )}
     </section>
   );

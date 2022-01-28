@@ -9,6 +9,19 @@
   --backer-opacity: 45%;
   --dotted-border: 2px dotted #fff;
   --blk40: rgba(0, 0, 0, 0.2);
+  --height-minus-header: calc(100vh - 120px);
+}
+
+@media screen and (max-width: 600px) {
+  :root {
+    --height-minus-header: calc(100vh - 32vh);
+  }
+}
+
+@media screen and (orientation: landscape) and (pointer: coarse) {
+  :root {
+    --height-minus-header: calc(100vh - 23vh);
+  }
 }
 
 .center {
@@ -54,5 +67,10 @@
 @media screen and (max-width: 600px) {
   .display-text {
     font-size: 1.5rem;
+  }
+
+  .lg-text {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
   }
 }

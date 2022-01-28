@@ -1,7 +1,7 @@
 .card-hand {
   position: relative;
-  width: 150px;
-  height: 210px;
+  min-width: 200px;
+  height: 25vh;
 }
 
 .card {
@@ -11,12 +11,13 @@
   transition: transform 0.6s;
   transform-style: preserve-3d;
   /* Below fixes weird safari bug that caused flipped card to show on top instead of bottom of stack */
+  transform: translateZ(-1000px);
   -webkit-transform: translateZ(-1000px);
 }
 
 .flipped {
-  -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .card-back,
@@ -30,7 +31,7 @@
 .card-back {
   background-image: url(../images/cards/card-back.png);
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: contain;
   background-position: center;
 }
 
@@ -46,9 +47,9 @@
 }
 
 .hand-total {
-  position: absolute;
-  right: -160%;
-  top: 25%;
+  position: relative;
+  top: 6vh;
+  left: 300px;
   background-color: var(--blk40);
   border-radius: 50%;
   width: 100px;
@@ -61,15 +62,14 @@
 
 @media screen and (max-width: 600px) {
   .card-hand {
-    width: 100px;
-    height: 150px;
+    height: 19vh;
   }
 
   .hand-total {
-    right: -130%;
-    top: 25%;
-    width: 80px;
-    height: 80px;
-    font-size: 1.2rem;
+    /* left: 215px; */
+    left: -50px;
+    width: 70px;
+    height: 70px;
+    font-size: 1rem;
   }
 }

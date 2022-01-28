@@ -1,7 +1,6 @@
 .game-page {
-  position: relative;
   width: 100vw;
-  height: 100vh;
+  height: var(--height-minus-header);
   background-image: url(../images/table-sign.png);
   background-repeat: no-repeat;
   background-position: center 40%;
@@ -11,6 +10,11 @@
   .game-page {
     background-size: contain;
     background-position: center;
-    top: 10px;
+  }
+}
+
+@media screen and (orientation: landscape) and (pointer: coarse) {
+  .game-page {
+    margin-top: -35px;
   }
 }
