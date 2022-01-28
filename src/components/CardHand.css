@@ -2,6 +2,7 @@
   position: relative;
   min-width: 200px;
   height: 25vh;
+  z-index: -1;
 }
 
 .card {
@@ -16,8 +17,10 @@
 }
 
 .flipped {
+  position: absolute;
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
+  z-index: -1;
 }
 
 .card-back,
