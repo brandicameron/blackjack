@@ -4,17 +4,13 @@
   background-image: url(../images/table-sign.png);
   background-repeat: no-repeat;
   background-position: center 40%;
+  margin-top: -35px;
 }
 
 @media screen and (max-width: 400px) {
   .game-page {
     background-size: contain;
     background-position: center;
-  }
-}
-
-@media screen and (orientation: landscape) and (pointer: coarse) {
-  .game-page {
-    margin-top: -35px;
+    margin-top: 0;
   }
 }

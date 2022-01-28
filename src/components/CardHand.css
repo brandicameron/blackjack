@@ -48,6 +48,14 @@
   height: 100%;
   box-shadow: -2px 3px 7px -5px rgba(0 0 0 / 50%);
   object-fit: contain;
+  transform: translateY(-40vh);
+  animation: deal 100ms ease-in forwards;
+}
+
+@keyframes deal {
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .hand-total {
