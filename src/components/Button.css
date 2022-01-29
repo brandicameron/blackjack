@@ -1,10 +1,14 @@
 .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: var(--gradient);
   box-shadow: 3.5px 6.062px 16px 0px rgba(2, 2, 2, 0.41);
   color: inherit;
   font-weight: 600;
   line-height: 100%;
   text-transform: uppercase;
+  text-align: center;
   border-radius: var(--border-radius);
   border: var(--dotted-border);
   padding-bottom: 3px;
@@ -37,7 +41,6 @@
   font-size: 1.4rem;
   z-index: 101;
   animation: pulse 300ms linear 250ms 3 forwards;
-  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
 }
 
 @keyframes pulse {
@@ -75,5 +78,19 @@
 
   .play-btn {
     min-width: 190px;
+  }
+
+  .btn-round {
+    height: 65px;
+    width: 65px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (orientation: landscape) and (pointer: coarse) {
+  .btn-round {
+    height: 85px;
+    width: 85px;
+    font-size: 1.15rem;
   }
 }
