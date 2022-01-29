@@ -18,7 +18,7 @@ export default function CardHand({
             }
             key={`${card.url}-${player}-${index}`}
             style={{
-              left: `${index * 30}px`,
+              left: `${index * (window.innerWidth > 600 ? 30 : 20)}px`,
               top: `${index * 5}px`,
             }}
           >

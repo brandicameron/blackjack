@@ -35,7 +35,7 @@ export default function Bank({
       ...prev,
       {
         value: parseInt(e.target.dataset.value),
-        url: `/chip-${e.target.dataset.value}.svg`,
+        url: `/chip-${e.target.dataset.value}.png`,
         id: e.target.dataset.id,
       },
     ]);
