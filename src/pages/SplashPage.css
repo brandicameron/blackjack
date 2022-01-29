@@ -1,6 +1,5 @@
 .splash-page {
   width: 100vw;
-  height: 100vh;
   height: var(--height-minus-header);
   background-image: url(../images/splash-text.svg);
   background-repeat: no-repeat;
@@ -12,7 +11,7 @@
 .splash-page-graphic {
   opacity: 0;
   transform: scale(0);
-  margin: -30px 0 30px 0;
+  margin: -60px 0 30px 0;
   max-width: 90vw;
   animation: grow 300ms ease-out forwards;
 }
@@ -21,5 +20,12 @@
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .splash-page {
+    background-position: center 40%;
+    /* background-position: center; */
   }
 }
