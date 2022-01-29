@@ -46,7 +46,7 @@
 .playing-card {
   width: 100%;
   height: 100%;
-  box-shadow: -2px 3px 7px -5px rgba(0 0 0 / 50%);
+  filter: drop-shadow(2px 2px 3px rgba(0 0 0 / 50%));
   object-fit: contain;
   transform: translateY(-40vh);
   animation: deal 100ms ease-in forwards;
@@ -78,7 +78,6 @@
   }
 
   .hand-total {
-    /* left: 215px; */
     left: -50px;
     width: 70px;
     height: 70px;

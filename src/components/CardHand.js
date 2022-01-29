@@ -7,6 +7,7 @@ export default function CardHand({
   handTotal,
   dealerFlip,
 }) {
+  let horizontalDistance = '--horizontalCardDistance';
   return (
     <section className='card-hand'>
       {shuffledCards.length > 0 &&
@@ -16,7 +17,10 @@ export default function CardHand({
               index === 0 && dealerFlip === false ? 'card' : 'card flipped'
             }
             key={`${card.url}-${player}-${index}`}
-            style={{ left: `${index * 30}px`, top: `${index * 5}px` }}
+            style={{
+              left: `${index * 30}px`,
+              top: `${index * 5}px`,
+            }}
           >
             <div className='card-back'></div>
             <div className='card-front'>

@@ -10,6 +10,8 @@
   --dotted-border: 2px dotted #fff;
   --blk40: rgba(0, 0, 0, 0.2);
   --height-minus-header: calc(100vh - 120px);
+  --horizontalCardDistance: 30;
+  --verticalCardDistance: 5;
 }
 
 @media screen and (max-width: 600px) {
