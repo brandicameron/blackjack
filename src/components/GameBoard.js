@@ -12,6 +12,8 @@ export default function GameBoard({
   weHaveAWinner,
   setWeHaveAWinner,
   setWinnerName,
+  setOfferDoubleDown,
+  dealDoubleDown,
 }) {
   const [dealerHand, setDealerHand] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
@@ -43,6 +45,18 @@ export default function GameBoard({
       dealerTempArray.push(cardsForInitialDeal[i]);
     }
 
+    // for testing
+    // setPlayerHand([
+    //   {
+    //     value: 2,
+    //     url: '/club-2.svg',
+    //   },
+    //   {
+    //     value: 8,
+    //     url: '/heart-8.svg',
+    //   },
+    // ]);
+
     setDealerHand(dealerTempArray);
     setPlayerHand(playerTempArray);
     setNumCardsPlayed((prev) => prev + 4);
@@ -70,6 +84,27 @@ export default function GameBoard({
     }
     playerHandTotal = playerHand.reduce((total, obj) => obj.value + total, 0);
   }, [playerHand]);
+
+  // ************************************ HANDLE DOUBLE DOWN ************************************
+
+  useEffect(() => {
+    // handles whether to offer double down button
+    if (playerHand.length === 2) {
+      if (playerHandTotal > 8 && playerHandTotal < 12) {
+        setOfferDoubleDown(true);
+      }
+    } else if (playerHand.length > 2) {
+      setOfferDoubleDown(false);
+    }
+  }, [playerHand]);
+
+  useEffect(() => {
+    // deals double down card & scores game
+    if (dealDoubleDown === true) {
+      handleAces(playerHand, playerHandTotal, setPlayerHand);
+      handleStay();
+    }
+  }, [dealDoubleDown]);
 
   // ************************************ SET & DISPLAY HAND TOTALS ************************************
   // sets and displays players hand total

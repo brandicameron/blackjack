@@ -25,6 +25,9 @@
 
 .chips-bet-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 120px;
   width: 120px;
   margin-bottom: 10px;

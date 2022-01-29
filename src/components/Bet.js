@@ -11,6 +11,10 @@ export default function Bet({
   setBeginRound,
   shuffleCards,
   cardsLeftToDeal,
+  offerDoubleDown,
+  setOfferDoubleDown,
+  setDealDoubleDown,
+  setOriginalBetAmount,
 }) {
   const handleBeginRound = () => {
     setBeginRound(true);
@@ -28,12 +32,28 @@ export default function Bet({
     setChipsBet(chipsBet.filter((item) => target !== item.id));
   };
 
+  // ************************************ HANDLE DOUBLE DOWN ************************************
+
+  const handleDoubleDown = () => {
+    setOriginalBetAmount(chipsBet);
+    setChipsBet((prev) => [...prev, ...prev]); //should double the total bet
+    setOfferDoubleDown(false);
+    setDealDoubleDown(true);
+  };
+
   return (
     <section className='placed-bet center-column'>
       {chipsBet.length === 0 && (
         <h1 className='instructions'>Select chips to place your bet...</h1>
       )}
       <div className='chips-bet-container'>
+        {offerDoubleDown && (
+          <Button
+            title='2x Double Down'
+            size='btn-round'
+            clickHandler={handleDoubleDown}
+          />
+        )}
         {chipsBet.map((chip, index) => (
           <button
             className='chip-btn chip-bet'

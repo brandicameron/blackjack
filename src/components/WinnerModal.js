@@ -7,6 +7,10 @@ export default function WinnerModal({
   setStartGame,
   setWeHaveAWinner,
   setBeginRound,
+  dealDoubleDown,
+  setDealDoubleDown,
+  originalBetAmount,
+  setChipsBet,
 }) {
   // MAYBE ADD BUTTON BACK INSTEAD?
 
@@ -21,6 +25,10 @@ export default function WinnerModal({
       setStartGame(true);
       setBeginRound(false);
       setWeHaveAWinner(false);
+      if (dealDoubleDown === true) {
+        setChipsBet(originalBetAmount);
+      }
+      setDealDoubleDown(false);
     }, 2500);
 
     return () => {

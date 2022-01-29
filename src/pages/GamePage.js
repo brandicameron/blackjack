@@ -23,6 +23,10 @@ export default function GamePage({
   const [numCardsPlayed, setNumCardsPlayed] = useState(0);
   const [weHaveAWinner, setWeHaveAWinner] = useState(false); //controls modal
   const [winnerName, setWinnerName] = useState('');
+  //for double down
+  const [offerDoubleDown, setOfferDoubleDown] = useState(false);
+  const [dealDoubleDown, setDealDoubleDown] = useState(false);
+  const [originalBetAmount, setOriginalBetAmount] = useState([]);
 
   //gets called in bet.js with Deal button
   const shuffleCards = () => {
@@ -54,6 +58,10 @@ export default function GamePage({
         setBetAmount={setBetAmount}
         shuffleCards={shuffleCards}
         cardsLeftToDeal={cardsLeftToDeal}
+        offerDoubleDown={offerDoubleDown}
+        setOfferDoubleDown={setOfferDoubleDown}
+        setDealDoubleDown={setDealDoubleDown}
+        setOriginalBetAmount={setOriginalBetAmount}
       />
       {beginRound && (
         <GameBoard
@@ -65,6 +73,8 @@ export default function GamePage({
           setWinnerName={setWinnerName}
           weHaveAWinner={weHaveAWinner}
           setWeHaveAWinner={setWeHaveAWinner}
+          setOfferDoubleDown={setOfferDoubleDown}
+          dealDoubleDown={dealDoubleDown}
         />
       )}
       <Bank
@@ -80,6 +90,10 @@ export default function GamePage({
           setStartGame={setStartGame}
           setWeHaveAWinner={setWeHaveAWinner}
           setBeginRound={setBeginRound}
+          dealDoubleDown={dealDoubleDown}
+          setDealDoubleDown={setDealDoubleDown}
+          originalBetAmount={originalBetAmount}
+          setChipsBet={setChipsBet}
         />
       )}
     </main>
