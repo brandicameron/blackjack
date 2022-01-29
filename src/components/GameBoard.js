@@ -46,19 +46,19 @@ export default function GameBoard({
     }
 
     // for testing
-    setPlayerHand([
-      {
-        value: 2,
-        url: '/club-2.svg',
-      },
-      {
-        value: 8,
-        url: '/heart-8.svg',
-      },
-    ]);
+    // setPlayerHand([
+    //   {
+    //     value: 2,
+    //     url: '/club-2.svg',
+    //   },
+    //   {
+    //     value: 8,
+    //     url: '/heart-8.svg',
+    //   },
+    // ]);
 
     setDealerHand(dealerTempArray);
-    // setPlayerHand(playerTempArray);
+    setPlayerHand(playerTempArray);
     setNumCardsPlayed((prev) => prev + 4);
   };
 
