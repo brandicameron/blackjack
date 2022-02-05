@@ -14,34 +14,17 @@
   --verticalCardDistance: 5;
 }
 
-@media screen and (max-width: 600px) {
-  :root {
-    --height-minus-header: calc(100vh - 32vh);
-  }
-}
-
-@media screen and (orientation: landscape) and (pointer: coarse) {
-  :root {
-    --height-minus-header: calc(100vh - 23vh);
-  }
-}
-
-.center {
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.center-column {
+.flex-center-column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.full-h-w {
-  height: 100vh;
-  width: 100vw;
 }
 
 .bold {
@@ -66,13 +49,23 @@
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (orientation: landscape) and (pointer: coarse) {
+  :root {
+    --height-minus-header: calc(100vh - 23vh);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --height-minus-header: calc(100vh - 32vh);
+  }
+
   .display-text {
     font-size: 1.5rem;
   }
 
   .lg-text {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     margin-bottom: 10px;
   }
 }

@@ -1,23 +1,20 @@
 .bank {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 1rem;
   transition: 200ms ease-out;
+  z-index: 10;
 }
 
-.tab {
+.bank-tab {
   background-color: var(--blk40);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   min-width: 175px;
   width: fit-content;
 }
 
-.bank-total {
-  padding-bottom: 0.7rem;
-}
-
-.chip-container {
+.bank-chip-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
@@ -47,10 +44,27 @@
 }
 
 .lower-bank {
-  transform: translateY(350px);
+  transform: translateY(290px);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (orientation: landscape) and (pointer: coarse) {
+  .bank-chip-container {
+    display: flex;
+    padding: 1rem 2rem;
+    gap: 10px;
+  }
+
+  .lower-bank {
+    transform: translateY(135px);
+  }
+
+  .chip-btn {
+    max-width: 100px;
+    max-height: 100px;
+  }
+}
+
+@media screen and (max-width: 900px) {
   .bank {
     left: 0;
     width: 100vw;
@@ -61,7 +75,7 @@
     min-width: 130px;
   }
 
-  .chip-container {
+  .bank-chip-container {
     display: flex;
     padding: 1rem 0.5rem;
     gap: 10px;
@@ -69,23 +83,6 @@
   }
 
   .lower-bank {
-    transform: translateY(190px);
-  }
-}
-
-@media screen and (orientation: landscape) and (pointer: coarse) {
-  .chip-container {
-    display: flex;
-    padding: 1rem 2rem;
-    gap: 10px;
-  }
-
-  .lower-bank {
-    transform: translateY(340px);
-  }
-
-  .chip-btn {
-    max-width: 100px;
-    max-height: 100px;
+    transform: translateY(85px);
   }
 }

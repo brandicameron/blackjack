@@ -3,10 +3,10 @@ import splashGraphic from '../images/splash-graphic.png';
 import Button from '../components/Button';
 
 export default function SplashPage({ setStartGame }) {
-  const startGameClick = () => setStartGame(true);
+  const handleStartGame = () => setStartGame(true);
 
   return (
-    <main className='splash-page center-column'>
+    <main className='splash-page flex-center-column'>
       <img
         className='splash-page-graphic'
         src={splashGraphic}
@@ -15,7 +15,7 @@ export default function SplashPage({ setStartGame }) {
       <Button
         title='Play'
         size='btn-lg play-btn'
-        clickHandler={startGameClick}
+        clickHandler={handleStartGame}
       />
     </main>
   );

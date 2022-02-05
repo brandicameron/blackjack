@@ -1,9 +1,5 @@
 .placed-bet {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
   height: var(--height-minus-header);
 }
@@ -23,19 +19,20 @@
   text-align: center;
 }
 
-.chips-bet-container {
+.bet-area {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 120px;
   width: 120px;
-  margin-bottom: 10px;
+  margin: -50px auto 10px auto;
   z-index: 100;
 }
 
 .chip-bet {
   position: absolute;
+  width: 100%;
 }
 
 .bet-text {
@@ -54,16 +51,20 @@
   align-items: center;
 }
 
-@media screen and (max-width: 600px) {
-  .chips-bet-container {
-    max-width: 75px;
-    max-height: 75px;
+@media screen and (orientation: landscape) and (pointer: coarse) {
+  .bet-area {
+    max-width: 100px;
+    max-height: 100px;
   }
 }
 
-@media screen and (orientation: landscape) and (pointer: coarse) {
-  .chips-bet-container {
-    max-width: 100px;
-    max-height: 100px;
+@media screen and (max-width: 900px) {
+  .bet-area {
+    max-width: 75px;
+    max-height: 75px;
+  }
+
+  .bet-text {
+    font-size: 1.4rem;
   }
 }

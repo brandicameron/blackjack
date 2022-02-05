@@ -1,26 +1,32 @@
-import React, { useState, useEffect } from 'react';
 import './GameBoard.css';
+import React, { useState, useEffect } from 'react';
 import CardHand from './CardHand';
 import Button from './Button';
+import { useShuffleCards } from '../hooks/useShuffleCards';
+import { useDealInitialHand } from '../hooks/useDealInitialHand';
+import { useHandleAces } from '../hooks/useHandleAces';
 
 export default function GameBoard({
-  shuffledCards,
-  numCardsPlayed,
-  setNumCardsPlayed,
-  betAmount,
-  setBankTotal,
-  weHaveAWinner,
+  leftInShoe,
+  setLeftInShoe,
   setWeHaveAWinner,
-  setWinnerName,
+  setWinnerMessage,
+  bankTotal,
+  setBankTotal,
+  betTotal,
+  shuffledCards,
+  setShuffledCards,
   setOfferDoubleDown,
   dealDoubleDown,
 }) {
   const [dealerHand, setDealerHand] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
-  const [playerTotal, setPlayerTotal] = useState(0);
+  const [dealerFlip, setDealerFlip] = useState(false);
   const [dealerTotal, setDealerTotal] = useState(0);
-  const [dealerFlip, setDealerFlip] = useState(false); //flips dealers hole card & retotals
-  const [completeDealerHand, setCompleteDealerHand] = useState(false);
+
+  const { shuffleCards } = useShuffleCards();
+  const { dealInitialHand } = useDealInitialHand();
+  const { handleAces } = useHandleAces();
 
   let playerHandTotal = playerHand.reduce((total, obj) => obj.value + total, 0);
   let dealerTrueTotal = dealerHand.reduce((total, obj) => obj.value + total, 0);
@@ -28,69 +34,41 @@ export default function GameBoard({
     .slice(1)
     .reduce((total, obj) => obj.value + total, 0);
 
-  // ************************************ INITIAL DEAL ************************************
-  const dealInitialHand = () => {
-    let cardsForInitialDeal = shuffledCards.slice(
-      numCardsPlayed,
-      numCardsPlayed + 4
-    );
-
-    let playerTempArray = [];
-    for (let i = 0; i < 4; i += 2) {
-      playerTempArray.push(cardsForInitialDeal[i]);
-    }
-
-    let dealerTempArray = [];
-    for (let i = 1; i < 4; i += 2) {
-      dealerTempArray.push(cardsForInitialDeal[i]);
-    }
-
-    // for testing
-    // setPlayerHand([
-    //   {
-    //     value: 2,
-    //     url: '/club-2.svg',
-    //   },
-    //   {
-    //     value: 8,
-    //     url: '/heart-8.svg',
-    //   },
-    // ]);
-
-    setDealerHand(dealerTempArray);
-    setPlayerHand(playerTempArray);
-    setNumCardsPlayed((prev) => prev + 4);
-  };
+  // ************************************ SHUFFLE & INITIAL DEAL ************************************
 
   useEffect(() => {
-    dealInitialHand();
+    if (leftInShoe < 75) {
+      setShuffledCards(shuffleCards);
+    }
   }, []);
 
   useEffect(() => {
-    // handles if 2 aces get dealt on inital deal
-    if (dealerHand.length > 0) {
-      if (dealerHand[0].value === 11 && dealerHand[1].value === 11) {
-        dealerHand[0].value = 1;
-      }
+    if (shuffledCards.length > 0) {
+      dealInitialHand(shuffledCards, setDealerHand, setPlayerHand);
     }
-  }, [dealerHand]);
+  }, [shuffledCards]);
 
   useEffect(() => {
-    // handles if 2 aces get dealt on inital deal
-    if (playerHand.length > 0) {
-      if (playerHand[0].value === 11 && playerHand[1].value === 11) {
-        playerHand[0].value = 1;
-      }
+    setLeftInShoe(shuffledCards.length);
+  }, [playerHand, dealerHand, shuffledCards]);
+
+  // check if player hits 21 or busts with every hit
+  useEffect(() => {
+    if (playerHandTotal >= 21) {
+      setDealerFlip(true);
     }
-    playerHandTotal = playerHand.reduce((total, obj) => obj.value + total, 0);
-  }, [playerHand]);
+  }, [playerHandTotal]);
 
   // ************************************ HANDLE DOUBLE DOWN ************************************
 
   useEffect(() => {
     // handles whether to offer double down button
     if (playerHand.length === 2) {
-      if (playerHandTotal > 8 && playerHandTotal < 12) {
+      if (
+        playerHandTotal > 8 &&
+        playerHandTotal < 12 &&
+        bankTotal >= betTotal * 2
+      ) {
         setOfferDoubleDown(true);
       }
     } else if (playerHand.length > 2) {
@@ -101,143 +79,90 @@ export default function GameBoard({
   useEffect(() => {
     // deals double down card & scores game
     if (dealDoubleDown === true) {
-      handleAces(playerHand, playerHandTotal, setPlayerHand);
+      handleAces(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
       handleStay();
     }
   }, [dealDoubleDown]);
 
-  // ************************************ SET & DISPLAY HAND TOTALS ************************************
-  // sets and displays players hand total
-  useEffect(() => {
-    setPlayerTotal(playerHandTotal);
-  }, [playerHand]);
+  // ************************************ HANDLE HIT & STAY ************************************
 
-  // sets and displays dealers hand total
+  const handleHitMe = () => {
+    if (playerHandTotal <= 21) {
+      handleAces(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
+    }
+  };
+
+  const handleStay = () => {
+    setDealerFlip(true);
+  };
+
+  // Display dealer's true total & complete dealer hand once hole card is flipped
   useEffect(() => {
     dealerFlip
       ? setDealerTotal(dealerTrueTotal)
       : setDealerTotal(dealerHiddenTotal);
-  }, [dealerHand, dealerFlip]);
-
-  // ************************************ HANDLE ACES ************************************
-
-  const handleAces = (hand, handTotal, setHand) => {
-    setNumCardsPlayed((prev) => prev + 1);
-    let findAce = hand.find((card) => card.value === 11);
 
     if (
-      handTotal + shuffledCards[numCardsPlayed].value > 21 &&
-      findAce !== undefined
+      playerHandTotal === 21 &&
+      playerHand.length === 2 &&
+      dealerFlip === true
     ) {
-      //handle changing value of initally dealt ace if needed
-      findAce.value = 1;
-      setHand((prev) => [...prev, shuffledCards[numCardsPlayed]]);
+      scoreTheRound(); //natural blackjack
     } else if (
-      //handle changing value of currently dealt ace if needed
-      shuffledCards[numCardsPlayed].value === 11 &&
-      handTotal + shuffledCards[numCardsPlayed].value > 21
+      dealerTrueTotal < 17 &&
+      dealerFlip === true &&
+      playerHandTotal <= 21
     ) {
-      shuffledCards[numCardsPlayed].value = 1;
-      setHand((prev) => [...prev, shuffledCards[numCardsPlayed]]);
-    } else {
-      setHand((prev) => [...prev, shuffledCards[numCardsPlayed]]);
-    }
-  };
-
-  // ************************************ HANDLE HIT BUTTON ************************************
-
-  const handleHitMe = () => {
-    handleAces(playerHand, playerHandTotal, setPlayerHand);
-  };
-
-  // ************************************ HANDLE STAY BUTTON ************************************
-
-  const handleStay = () => {
-    setDealerFlip(true);
-    setCompleteDealerHand(true);
-
-    if (dealerTrueTotal >= 17) {
-      scoreTheRound();
-    }
-  };
-
-  // HANDLE DEALING REST OF DEALERS HAND
-  useEffect(() => {
-    if (completeDealerHand === true && dealerTrueTotal < 17) {
       let timer1 = setTimeout(() => {
-        handleAces(dealerHand, dealerTrueTotal, setDealerHand);
+        handleAces(dealerHand, dealerTrueTotal, setDealerHand, shuffledCards);
       }, 1000);
-
       return () => {
         clearTimeout(timer1);
       };
-    }
-  }, [completeDealerHand, dealerHand]);
-
-  // SCORE THE ROUND
-  useEffect(() => {
-    if (completeDealerHand === true && dealerTrueTotal >= 17) {
+    } else if (dealerFlip === true) {
       scoreTheRound();
     }
-  }, [dealerTrueTotal]);
+  }, [dealerHand, dealerFlip, dealerTrueTotal]);
 
-  // ************************************ SCORING ************************************
+  // ************************************ SCORE THE ROUND ************************************
 
-  const handleBet = {
-    playerWins: (prev) => prev + betAmount,
-    dealerWins: (prev) => prev - betAmount,
+  const handlePayout = {
+    playerWins: (prev) => prev + betTotal,
+    dealerWins: (prev) => prev - betTotal,
     push: (prev) => prev,
-    blackJack: (prev) => prev + Math.ceil(betAmount * 1.5),
-  };
-
-  // check if player hits 21 or busts with every hit
-  useEffect(() => {
-    if (playerTotal === 21 && playerHand.length === 2) {
-      scoreBlackJack();
-    } else if (playerTotal === 21) {
-      //keep to auto score when player hits to 21
-      scoreTheRound();
-    } else if (playerTotal > 21) {
-      scoreTheRound();
-    }
-  }, [playerTotal]);
-
-  const scoreBlackJack = () => {
-    if (playerTotal === 21 && dealerTrueTotal === 21) {
-      declareWinner('Push', handleBet.push);
-    } else if (playerTotal === 21 && dealerTrueTotal !== 21) {
-      declareWinner('BLACKJACK!!!', handleBet.blackJack);
-    }
+    blackJack: (prev) => prev + Math.ceil(betTotal * 1.5),
   };
 
   const scoreTheRound = () => {
-    if (playerTotal === 21 && dealerTrueTotal === 21) {
-      declareWinner('Push!', handleBet.push);
-    } else if (playerTotal === 21 && dealerTrueTotal !== 21) {
-      declareWinner('You win!', handleBet.playerWins);
-    } else if (playerTotal > 21) {
-      declareWinner('You busted, dealer wins.', handleBet.dealerWins);
+    if (
+      playerHandTotal === 21 &&
+      playerHand.length === 2 &&
+      dealerHand !== 21
+    ) {
+      declareWinner('BLACKJACK!', handlePayout.blackJack);
+    } else if (dealerTrueTotal === playerHandTotal) {
+      declareWinner('Push!', handlePayout.push);
+    } else if (playerHandTotal === 21 && dealerTrueTotal !== 21) {
+      declareWinner('You win!', handlePayout.playerWins);
+    } else if (playerHandTotal > 21) {
+      declareWinner('You busted, dealer wins.', handlePayout.dealerWins);
     } else if (dealerTrueTotal === 21) {
-      declareWinner('Dealer wins.', handleBet.dealerWins);
+      declareWinner('Dealer wins.', handlePayout.dealerWins);
     } else if (dealerTrueTotal > 21) {
-      declareWinner('Dealer busted, you win!', handleBet.playerWins);
-    } else if (dealerTrueTotal > playerTotal) {
-      declareWinner('Dealer wins.', handleBet.dealerWins);
-    } else if (dealerTrueTotal < playerTotal) {
-      declareWinner('You win!', handleBet.playerWins);
-    } else if (dealerTrueTotal === playerTotal) {
-      declareWinner('Push!', handleBet.push);
+      declareWinner('Dealer busted, you win!', handlePayout.playerWins);
+    } else if (dealerTrueTotal > playerHandTotal) {
+      declareWinner('Dealer wins.', handlePayout.dealerWins);
+    } else if (dealerTrueTotal < playerHandTotal) {
+      declareWinner('You win!', handlePayout.playerWins);
     }
   };
 
   // ************************************ DECLARE WINNER ************************************
-  const declareWinner = (winnerName, bet) => {
-    setWinnerName(winnerName);
-    setTimeout(() => {
-      setDealerFlip(true);
-    }, 500);
+  const declareWinner = (winnerMessage, bet) => {
+    setWinnerMessage(winnerMessage);
 
     setTimeout(() => {
+      setWeHaveAWinner(true);
       setBankTotal(bet);
       setWeHaveAWinner(true);
     }, 1500);
@@ -245,30 +170,24 @@ export default function GameBoard({
 
   return (
     <section className='game-board'>
-      {!weHaveAWinner && (
-        <div className='game-btns'>
-          {!dealerFlip && (
-            <>
-              <Button title='Hit Me' size='btn-lg' clickHandler={handleHitMe} />
-              <Button title='Stay' size='btn-lg' clickHandler={handleStay} />
-            </>
-          )}
-        </div>
-      )}
+      <div className='game-btns'>
+        <Button title='Hit Me' size='btn-lg' clickHandler={handleHitMe} />
+        <Button title='Stay' size='btn-lg' clickHandler={handleStay} />
+      </div>
 
       <div className='card-hands'>
         <CardHand
-          shuffledCards={shuffledCards}
-          playerOrDealer={dealerHand}
-          player='Dealer'
+          playerOrDealerHand={dealerHand}
+          playerOrDealer='Dealer'
           handTotal={dealerTotal}
+          shuffledCards={shuffledCards}
           dealerFlip={dealerFlip}
         />
         <CardHand
+          playerOrDealerHand={playerHand}
+          playerOrDealer='Player'
+          handTotal={playerHandTotal}
           shuffledCards={shuffledCards}
-          playerOrDealer={playerHand}
-          player='Player'
-          handTotal={playerTotal}
         />
       </div>
     </section>

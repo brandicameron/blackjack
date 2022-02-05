@@ -1,7 +1,18 @@
+import Cards from '../data/cardData.json';
+
 export function useShuffleCards() {
-  const shuffle = (array) => {
+  let cardsToShuffle = [];
+  // play with a 6 deck shoe
+  Array.from({ length: 6 }, () => cardsToShuffle.push(...Cards));
+
+  // THANKS to:
+  // https://stackoverflow.com/questions/48219487/javascript-how-to-clone-array-without-reference
+  // for teaching me how to get a clean copy of an array
+  cardsToShuffle = JSON.parse(JSON.stringify(cardsToShuffle));
+
+  const shuffleCards = () => {
     // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-    var currentIndex = array.length,
+    var currentIndex = cardsToShuffle.length,
       temporaryValue,
       randomIndex;
 
@@ -9,11 +20,23 @@ export function useShuffleCards() {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
 
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+      temporaryValue = cardsToShuffle[currentIndex];
+      cardsToShuffle[currentIndex] = cardsToShuffle[randomIndex];
+      cardsToShuffle[randomIndex] = temporaryValue;
     }
-    return array;
+    const time = new Date().toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    });
+    console.log(`Cards shuffled at ${time}`);
+
+    // cardsToShuffle.forEach((card, index) => {
+    //   card.id = index;
+    // });
+
+    return cardsToShuffle;
   };
-  return { shuffle };
+
+  return { shuffleCards };
 }

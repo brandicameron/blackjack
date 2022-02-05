@@ -1,26 +1,32 @@
 [
   {
     "value": 1,
-    "url": "/chip-1.png"
+    "url": "/chip-1.png",
+    "id": 1
   },
   {
     "value": 5,
-    "url": "/chip-5.png"
+    "url": "/chip-5.png",
+    "id": 2
   },
   {
     "value": 25,
-    "url": "/chip-25.png"
+    "url": "/chip-25.png",
+    "id": 3
   },
   {
     "value": 50,
-    "url": "/chip-50.png"
+    "url": "/chip-50.png",
+    "id": 4
   },
   {
     "value": 100,
-    "url": "/chip-100.png"
+    "url": "/chip-100.png",
+    "id": 5
   },
   {
     "value": 500,
-    "url": "/chip-500.png"
+    "url": "/chip-500.png",
+    "id": 6
   }
 ]

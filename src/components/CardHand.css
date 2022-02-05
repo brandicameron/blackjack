@@ -1,7 +1,8 @@
 .card-hand {
   position: relative;
   min-width: 200px;
-  height: 25vh;
+  height: 23vh;
+  min-height: 225px;
   z-index: -1;
 }
 
@@ -72,9 +73,16 @@
   line-height: 90%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (orientation: landscape) and (pointer: coarse) {
   .card-hand {
-    height: 19vh;
+    min-height: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .card-hand {
+    height: 17vh;
+    min-height: 0;
   }
 
   .hand-total {

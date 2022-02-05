@@ -4,12 +4,11 @@
   height: 90px;
   justify-content: space-between;
   margin: 0 auto;
-  z-index: 10;
 }
 
 .icon {
-  width: auto;
   height: 30px;
+  margin: 0 auto;
 }
 
 .how-link:hover > .icon {

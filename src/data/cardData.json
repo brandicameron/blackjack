@@ -85,7 +85,6 @@
   },
   {
     "value": 11,
-    "secondary-value": 1,
     "url": "/club-A.svg",
     "type": "ace"
   },
@@ -127,7 +126,6 @@
   },
   {
     "value": 11,
-    "secondary-value": 1,
     "url": "/diamond-A.svg",
     "type": "ace"
   },
@@ -169,7 +167,6 @@
   },
   {
     "value": 11,
-    "secondary-value": 1,
     "url": "/heart-A.svg",
     "type": "ace"
   },
@@ -211,7 +208,6 @@
   },
   {
     "value": 11,
-    "secondary-value": 1,
     "url": "/spade-A.svg",
     "type": "ace"
   }

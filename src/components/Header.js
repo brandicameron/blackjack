@@ -2,9 +2,9 @@ import './Header.css';
 import cardsIcon from '../images/cards-icon.svg';
 import questionGraphic from '../images/question.svg';
 
-export default function Header({ beginRound, cardsLeftToDeal, startGame }) {
+export default function Header({ leftInShoe, startGame }) {
   return (
-    <header className='header center'>
+    <header className='header flex-center'>
       <a
         href='https://www.onlinegambling.com/blackjack/rules/'
         target='_blank'
@@ -15,11 +15,11 @@ export default function Header({ beginRound, cardsLeftToDeal, startGame }) {
         How to Play
       </a>
       {startGame && (
-        <div className='cards-left center-column'>
+        <div>
           <img src={cardsIcon} alt='' className='icon' />
-          <div className='cards-left'>
-            <span className='bold'>{cardsLeftToDeal}</span> left in deck
-          </div>
+          <p className='cards-left'>
+            <span className='bold'>{leftInShoe}</span> left in deck
+          </p>
         </div>
       )}
     </header>
