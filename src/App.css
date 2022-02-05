@@ -69,3 +69,9 @@
     margin-bottom: 10px;
   }
 }
+
+@media screen and (max-height: 550px) {
+  .display-text {
+    font-size: 1.3rem;
+  }
+}

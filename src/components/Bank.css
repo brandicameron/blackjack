@@ -70,7 +70,7 @@
     width: 100vw;
   }
 
-  .tab {
+  .bank-tab {
     padding: 0.5rem 0;
     min-width: 130px;
   }
@@ -84,5 +84,16 @@
 
   .lower-bank {
     transform: translateY(85px);
+  }
+}
+
+@media screen and (max-height: 550px) {
+  .bank-tab {
+    padding: 0 0;
+    min-width: 130px;
+  }
+
+  .lower-bank {
+    transform: translateY(70px);
   }
 }

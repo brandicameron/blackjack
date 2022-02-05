@@ -60,11 +60,31 @@
 
 @media screen and (max-width: 900px) {
   .bet-area {
-    max-width: 75px;
-    max-height: 75px;
+    max-width: 70px;
+    max-height: 70px;
+    margin: -50px auto 5px auto;
+  }
+
+  .instructions {
+    top: 30%;
+    padding: 15px 30px 20px 30px;
+    width: 80vw;
   }
 
   .bet-text {
     font-size: 1.4rem;
+    padding: 3px 10px;
+  }
+}
+
+@media screen and (max-height: 550px) {
+  .bet-area {
+    max-width: 60px;
+    max-height: 60px;
+  }
+
+  .bet-text {
+    font-size: 1.2rem;
+    padding: 3px 10px;
   }
 }

@@ -20,3 +20,9 @@
     height: 58vh;
   }
 }
+
+@media screen and (max-height: 550px) {
+  .game-board {
+    margin-top: -5vh;
+  }
+}

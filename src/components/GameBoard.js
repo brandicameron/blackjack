@@ -55,7 +55,12 @@ export default function GameBoard({
   // check if player hits 21 or busts with every hit
   useEffect(() => {
     if (playerHandTotal >= 21) {
-      setDealerFlip(true);
+      let timer1 = setTimeout(() => {
+        setDealerFlip(true);
+      }, 250);
+      return () => {
+        clearTimeout(timer1);
+      };
     }
   }, [playerHandTotal]);
 
@@ -93,7 +98,9 @@ export default function GameBoard({
   };
 
   const handleStay = () => {
-    setDealerFlip(true);
+    setTimeout(() => {
+      setDealerFlip(true);
+    }, 250);
   };
 
   // Display dealer's true total & complete dealer hand once hole card is flipped

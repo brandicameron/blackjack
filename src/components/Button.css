@@ -105,3 +105,18 @@
     width: 88vw;
   }
 }
+
+@media screen and (max-height: 550px) {
+  .btn-lg {
+    min-width: 75px;
+    max-width: 75px;
+    height: 75px;
+    font-size: 1.7rem;
+  }
+
+  .btn-round {
+    height: 50px;
+    width: 50px;
+    font-size: 0.7rem;
+  }
+}
