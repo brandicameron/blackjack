@@ -4,7 +4,7 @@ import CardHand from './CardHand';
 import Button from './Button';
 import { useShuffleCards } from '../hooks/useShuffleCards';
 import { useDealInitialHand } from '../hooks/useDealInitialHand';
-import { useHandleAces } from '../hooks/useHandleAces';
+import { useDealNextCard } from '../hooks/useDealNextCard';
 
 export default function GameBoard({
   leftInShoe,
@@ -19,8 +19,6 @@ export default function GameBoard({
   setOfferDoubleDown,
   dealDoubleDown,
 }) {
-  // console.log(shuffledCards);
-
   const [dealerHand, setDealerHand] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
   const [dealerFlip, setDealerFlip] = useState(false);
@@ -28,7 +26,7 @@ export default function GameBoard({
 
   const { shuffleCards } = useShuffleCards();
   const { dealInitialHand } = useDealInitialHand();
-  const { handleAces } = useHandleAces();
+  const { dealNextCard } = useDealNextCard();
 
   let playerHandTotal = playerHand.reduce((total, obj) => obj.value + total, 0);
   let dealerTrueTotal = dealerHand.reduce((total, obj) => obj.value + total, 0);
@@ -53,6 +51,8 @@ export default function GameBoard({
   useEffect(() => {
     setLeftInShoe(shuffledCards.length);
   }, [playerHand, dealerHand, shuffledCards]);
+
+  // ************************************ CHECK PLAYERS HAND WITH EVERY CARD DEALT ************************************
 
   // check if player hits 21 or busts with every hit
   useEffect(() => {
@@ -86,7 +86,7 @@ export default function GameBoard({
   useEffect(() => {
     // deals double down card & scores game
     if (dealDoubleDown === true) {
-      handleAces(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
+      dealNextCard(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
       handleStay();
     }
   }, [dealDoubleDown]);
@@ -95,7 +95,7 @@ export default function GameBoard({
 
   const handleHitMe = () => {
     if (playerHandTotal <= 21) {
-      handleAces(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
+      dealNextCard(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
     }
   };
 
@@ -105,7 +105,8 @@ export default function GameBoard({
     }, 250);
   };
 
-  // Display dealer's true total & complete dealer hand once hole card is flipped
+  // ************************************ HANDLE COMPLETING DEALERS HAND & SCORE THE ROUND ************************************
+
   useEffect(() => {
     dealerFlip
       ? setDealerTotal(dealerTrueTotal)
@@ -122,11 +123,11 @@ export default function GameBoard({
       dealerFlip === true &&
       playerHandTotal <= 21
     ) {
-      let timer1 = setTimeout(() => {
-        handleAces(dealerHand, dealerTrueTotal, setDealerHand, shuffledCards);
-      }, 1000);
+      let timer = setTimeout(() => {
+        dealNextCard(dealerHand, dealerTrueTotal, setDealerHand, shuffledCards);
+      }, 1200);
       return () => {
-        clearTimeout(timer1);
+        clearTimeout(timer);
       };
     } else if (dealerFlip === true) {
       scoreTheRound();

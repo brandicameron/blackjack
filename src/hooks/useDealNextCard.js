@@ -1,5 +1,5 @@
-export function useHandleAces() {
-  const handleAces = (hand, handTotal, setHand, shuffledCards) => {
+export function useDealNextCard() {
+  const dealNextCard = (hand, handTotal, setHand, shuffledCards) => {
     let findAce = hand.find((card) => card.value === 11);
     let nextCard = shuffledCards.splice(0, 1);
 
@@ -18,5 +18,5 @@ export function useHandleAces() {
       setHand((prev) => [...prev, ...nextCard]);
     }
   };
-  return { handleAces };
+  return { dealNextCard };
 }
