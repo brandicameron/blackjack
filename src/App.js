@@ -74,6 +74,7 @@ function App() {
           setDealDoubleDown={setDealDoubleDown}
           originalBetAmount={originalBetAmount}
           setBetChips={setBetChips}
+          bankTotal={bankTotal}
         />
       )}
     </main>

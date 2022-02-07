@@ -1,214 +1,266 @@
 [
   {
     "value": 10,
-    "url": "/club-J.png"
+    "url": "/club-J.png",
+    "mobileUrl": "/club-J-m.png"
   },
   {
     "value": 10,
-    "url": "/club-Q.png"
+    "url": "/club-Q.png",
+    "mobileUrl": "/club-Q-m.png"
   },
   {
     "value": 10,
-    "url": "/club-K.png"
+    "url": "/club-K.png",
+    "mobileUrl": "/club-K-m.png"
   },
   {
     "value": 10,
-    "url": "/diamond-J.png"
+    "url": "/diamond-J.png",
+    "mobileUrl": "/diamond-J-m.png"
   },
   {
     "value": 10,
-    "url": "/diamond-Q.png"
+    "url": "/diamond-Q.png",
+    "mobileUrl": "/diamond-Q-m.png"
   },
   {
     "value": 10,
-    "url": "/diamond-K.png"
+    "url": "/diamond-K.png",
+    "mobileUrl": "/diamond-K-m.png"
   },
   {
     "value": 10,
-    "url": "/heart-J.png"
+    "url": "/heart-J.png",
+    "mobileUrl": "/heart-J-m.png"
   },
   {
     "value": 10,
-    "url": "/heart-Q.png"
+    "url": "/heart-Q.png",
+    "mobileUrl": "/heart-Q-m.png"
   },
   {
     "value": 10,
-    "url": "/heart-K.png"
+    "url": "/heart-K.png",
+    "mobileUrl": "/heart-K-m.png"
   },
   {
     "value": 10,
-    "url": "/spade-J.png"
+    "url": "/spade-J.png",
+    "mobileUrl": "/spade-J-m.png"
   },
   {
     "value": 10,
-    "url": "/spade-Q.png"
+    "url": "/spade-Q.png",
+    "mobileUrl": "/spade-Q-m.png"
   },
   {
     "value": 10,
-    "url": "/spade-K.png"
+    "url": "/spade-K.png",
+    "mobileUrl": "/spade-K-m.png"
   },
   {
     "value": 2,
-    "url": "/club-2.svg"
+    "url": "/club-2.svg",
+    "mobileUrl": "/club-2.svg"
   },
   {
     "value": 3,
-    "url": "/club-3.svg"
+    "url": "/club-3.svg",
+    "mobileUrl": "/club-3.svg"
   },
   {
     "value": 4,
-    "url": "/club-4.svg"
+    "url": "/club-4.svg",
+    "mobileUrl": "/club-4.svg"
   },
   {
     "value": 5,
-    "url": "/club-5.svg"
+    "url": "/club-5.svg",
+    "mobileUrl": "/club-5.svg"
   },
   {
     "value": 6,
-    "url": "/club-6.svg"
+    "url": "/club-6.svg",
+    "mobileUrl": "/club-6.svg"
   },
   {
     "value": 7,
-    "url": "/club-7.svg"
+    "url": "/club-7.svg",
+    "mobileUrl": "/club-7.svg"
   },
   {
     "value": 8,
-    "url": "/club-8.svg"
+    "url": "/club-8.svg",
+    "mobileUrl": "/club-8.svg"
   },
   {
     "value": 9,
-    "url": "/club-9.svg"
+    "url": "/club-9.svg",
+    "mobileUrl": "/club-9.svg"
   },
   {
     "value": 10,
-    "url": "/club-10.svg"
+    "url": "/club-10.svg",
+    "mobileUrl": "/club-10.svg"
   },
   {
     "value": 11,
     "url": "/club-A.svg",
+    "mobileUrl": "/club-A.svg",
     "type": "ace"
   },
   {
     "value": 2,
-    "url": "/diamond-2.svg"
+    "url": "/diamond-2.svg",
+    "mobileUrl": "/diamond-2.svg"
   },
   {
     "value": 3,
-    "url": "/diamond-3.svg"
+    "url": "/diamond-3.svg",
+    "mobileUrl": "/diamond-3.svg"
   },
   {
     "value": 4,
-    "url": "/diamond-4.svg"
+    "url": "/diamond-4.svg",
+    "mobileUrl": "/diamond-4.svg"
   },
   {
     "value": 5,
-    "url": "/diamond-5.svg"
+    "url": "/diamond-5.svg",
+    "mobileUrl": "/diamond-5.svg"
   },
   {
     "value": 6,
-    "url": "/diamond-6.svg"
+    "url": "/diamond-6.svg",
+    "mobileUrl": "/diamond-6.svg"
   },
   {
     "value": 7,
-    "url": "/diamond-7.svg"
+    "url": "/diamond-7.svg",
+    "mobileUrl": "/diamond-7.svg"
   },
   {
     "value": 8,
-    "url": "/diamond-8.svg"
+    "url": "/diamond-8.svg",
+    "mobileUrl": "/diamond-8.svg"
   },
   {
     "value": 9,
-    "url": "/diamond-9.svg"
+    "url": "/diamond-9.svg",
+    "mobileUrl": "/diamond-9.svg"
   },
   {
     "value": 10,
-    "url": "/diamond-10.svg"
+    "url": "/diamond-10.svg",
+    "mobileUrl": "/diamond-10.svg"
   },
   {
     "value": 11,
     "url": "/diamond-A.svg",
+    "mobileUrl": "/diamond-A.svg",
     "type": "ace"
   },
   {
     "value": 2,
-    "url": "/heart-2.svg"
+    "url": "/heart-2.svg",
+    "mobileUrl": "/heart-2.svg"
   },
   {
     "value": 3,
-    "url": "/heart-3.svg"
+    "url": "/heart-3.svg",
+    "mobileUrl": "/heart-3.svg"
   },
   {
     "value": 4,
-    "url": "/heart-4.svg"
+    "url": "/heart-4.svg",
+    "mobileUrl": "/heart-4.svg"
   },
   {
     "value": 5,
-    "url": "/heart-5.svg"
+    "url": "/heart-5.svg",
+    "mobileUrl": "/heart-5.svg"
   },
   {
     "value": 6,
-    "url": "/heart-6.svg"
+    "url": "/heart-6.svg",
+    "mobileUrl": "/heart-6.svg"
   },
   {
     "value": 7,
-    "url": "/heart-7.svg"
+    "url": "/heart-7.svg",
+    "mobileUrl": "/heart-7.svg"
   },
   {
     "value": 8,
-    "url": "/heart-8.svg"
+    "url": "/heart-8.svg",
+    "mobileUrl": "/heart-8.svg"
   },
   {
     "value": 9,
-    "url": "/heart-9.svg"
+    "url": "/heart-9.svg",
+    "mobileUrl": "/heart-9.svg"
   },
   {
     "value": 10,
-    "url": "/heart-10.svg"
+    "url": "/heart-10.svg",
+    "mobileUrl": "/heart-10.svg"
   },
   {
     "value": 11,
     "url": "/heart-A.svg",
+    "mobileUrl": "/heart-A.svg",
     "type": "ace"
   },
   {
     "value": 2,
-    "url": "/spade-2.svg"
+    "url": "/spade-2.svg",
+    "mobileUrl": "/spade-2.svg"
   },
   {
     "value": 3,
-    "url": "/spade-3.svg"
+    "url": "/spade-3.svg",
+    "mobileUrl": "/spade-3.svg"
   },
   {
     "value": 4,
-    "url": "/spade-4.svg"
+    "url": "/spade-4.svg",
+    "mobileUrl": "/spade-4.svg"
   },
   {
     "value": 5,
-    "url": "/spade-5.svg"
+    "url": "/spade-5.svg",
+    "mobileUrl": "/spade-5.svg"
   },
   {
     "value": 6,
-    "url": "/spade-6.svg"
+    "url": "/spade-6.svg",
+    "mobileUrl": "/spade-6.svg"
   },
   {
     "value": 7,
-    "url": "/spade-7.svg"
+    "url": "/spade-7.svg",
+    "mobileUrl": "/spade-7.svg"
   },
   {
     "value": 8,
-    "url": "/spade-8.svg"
+    "url": "/spade-8.svg",
+    "mobileUrl": "/spade-8.svg"
   },
   {
     "value": 9,
-    "url": "/spade-9.svg"
+    "url": "/spade-9.svg",
+    "mobileUrl": "/spade-9.svg"
   },
   {
     "value": 10,
-    "url": "/spade-10.svg"
+    "url": "/spade-10.svg",
+    "mobileUrl": "/spade-10.svg"
   },
   {
     "value": 11,
     "url": "/spade-A.svg",
+    "mobileUrl": "/spade-A.svg",
     "type": "ace"
   }
 ]

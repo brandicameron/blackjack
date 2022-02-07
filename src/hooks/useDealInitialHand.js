@@ -26,6 +26,7 @@ export function useDealInitialHand() {
     handleDoubleAcesOnDeal();
     setDealer(dealerTempArray);
     setPlayer(playerTempArray);
+
     // setPlayer([
     //   {
     //     value: 10,

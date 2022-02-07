@@ -10,15 +10,28 @@ export default function WinnerModal({
   setDealDoubleDown,
   originalBetAmount,
   setBetChips,
+  bankTotal,
 }) {
   const handlePlayAgain = () => {
     setStartGame(true);
     setBeginRound(false);
     setWeHaveAWinner(false);
 
-    if (dealDoubleDown === true) {
+    // reverts original bet amount after a double down situation
+    if (
+      dealDoubleDown === true &&
+      originalBetAmount.reduce((total, obj) => obj.value + total, 0) < bankTotal
+    ) {
       setBetChips(originalBetAmount);
+    } else if (
+      dealDoubleDown === true &&
+      originalBetAmount.reduce((total, obj) => obj.value + total, 0) > bankTotal
+    ) {
+      setBetChips([]);
     }
+    // if (dealDoubleDown === true) {
+    //   setBetChips(originalBetAmount);
+    // }
     setDealDoubleDown(false);
   };
 

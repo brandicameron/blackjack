@@ -19,6 +19,8 @@ export default function GameBoard({
   setOfferDoubleDown,
   dealDoubleDown,
 }) {
+  // console.log(shuffledCards);
+
   const [dealerHand, setDealerHand] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
   const [dealerFlip, setDealerFlip] = useState(false);

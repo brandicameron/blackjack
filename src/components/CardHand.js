@@ -7,6 +7,7 @@ export default function CardHand({
   shuffledCards,
   dealerFlip,
 }) {
+  let mobile = '/club-K-m.png';
   return (
     <section className='card-hand'>
       {shuffledCards.length > 0 &&
@@ -25,13 +26,20 @@ export default function CardHand({
               <div className='card-back'></div>
             )}
             <div className='card-front'>
-              <img
-                src={require(`../images/cards${card.url}`)}
-                alt={card.value}
-                className='playing-card'
-                width='288'
-                height='403'
-              />
+              <picture className='playing-card'>
+                <source
+                  media='(max-width: 900px)'
+                  srcSet={require(`../images/cards${card.mobileUrl}`)}
+                  type='image/png'
+                />
+                <img
+                  src={require(`../images/cards${card.url}`)}
+                  alt={card.value}
+                  className='playing-card'
+                  width='288'
+                  height='403'
+                />
+              </picture>
             </div>
           </div>
         ))}

@@ -33,6 +33,9 @@
 .chip-bet {
   position: absolute;
   width: 100%;
+  height: 100%;
+  max-width: 115px;
+  max-height: 115px;
 }
 
 .bet-text {
@@ -53,15 +56,15 @@
 
 @media screen and (orientation: landscape) and (pointer: coarse) {
   .bet-area {
-    max-width: 100px;
-    max-height: 100px;
+    width: 100px;
+    height: 100px;
   }
 }
 
 @media screen and (max-width: 900px) {
   .bet-area {
-    max-width: 70px;
-    max-height: 70px;
+    width: 75px;
+    height: 75px;
     margin: -50px auto 5px auto;
   }
 

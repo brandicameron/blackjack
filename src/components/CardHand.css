@@ -80,6 +80,10 @@
 }
 
 @media screen and (max-width: 900px) {
+  .card-back {
+    background-image: url(../images/cards/card-back-m.png);
+  }
+
   .card-hand {
     height: 17vh;
     min-height: 0;
