@@ -9,12 +9,26 @@ export default function Bet({
   setBeginRound,
   betTotal,
   setBetTotal,
+  prevBetAmount,
+  setPrevBetAmount,
   bankTotal,
   offerDoubleDown,
   setOfferDoubleDown,
   setDealDoubleDown,
   setOriginalBetAmount,
 }) {
+  // adds previous bet amount automatically if a round has already been played
+  useEffect(() => {
+    if (beginRound === false && prevBetAmount.length > 0) {
+      let prevBetTimer = setTimeout(() => {
+        setBetChips(prevBetAmount);
+      }, 500);
+      return () => {
+        clearTimeout(prevBetTimer);
+      };
+    }
+  }, [beginRound]);
+
   useEffect(() => {
     //if current bet amount is higher than bank total, remove the bet
     if (betTotal > bankTotal) {
@@ -35,20 +49,21 @@ export default function Bet({
 
   const handleDealButton = () => {
     setBeginRound(true);
+    setPrevBetAmount(betChips);
   };
 
   // ************************************ HANDLE DOUBLE DOWN ************************************
 
   const handleDoubleDown = () => {
     setOriginalBetAmount(betChips);
-    setBetChips((prev) => [...prev, ...prev]); //should double the total bet
+    setBetChips((prev) => [...prev, ...prev]); //double the total bet
     setOfferDoubleDown(false);
     setDealDoubleDown(true);
   };
 
   return (
     <section className='placed-bet flex-center-column'>
-      {betChips.length === 0 && (
+      {betChips.length === 0 && prevBetAmount < 1 && (
         <h1 className='instructions'>Select chips to place your bet...</h1>
       )}
       <div className='bet-area'>
@@ -63,7 +78,15 @@ export default function Bet({
           <button
             className='chip-btn chip-bet'
             key={`${chip.value}-${index}`}
-            style={{ left: `${index * 2}px`, bottom: `${index * 1}px` }}
+            style={{
+              left: `${index * 3}px`,
+              bottom: `${index * 1}px`,
+              transform: `translateY(${
+                chip.wh / 2 - (chip.wh - chip.y) + chip.h / 2 + 29
+              }px) translateX(${
+                chip.ww / 2 - (chip.ww - chip.x) + chip.w / 2 + 3
+              }px)`,
+            }}
           >
             <img
               src={require(`../images${chip.url}`)}

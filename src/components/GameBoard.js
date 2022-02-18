@@ -5,6 +5,7 @@ import Button from './Button';
 import { useShuffleCards } from '../hooks/useShuffleCards';
 import { useDealInitialHand } from '../hooks/useDealInitialHand';
 import { useDealNextCard } from '../hooks/useDealNextCard';
+import SplitHand from './SplitHand';
 
 export default function GameBoard({
   leftInShoe,
@@ -14,15 +15,24 @@ export default function GameBoard({
   bankTotal,
   setBankTotal,
   betTotal,
+  setBetTotal,
   shuffledCards,
   setShuffledCards,
   setOfferDoubleDown,
   dealDoubleDown,
+  betChips,
+  setBetChips,
+  splitHand,
+  setSplitHand,
+  scoreSplitHand,
 }) {
   const [dealerHand, setDealerHand] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
   const [dealerFlip, setDealerFlip] = useState(false);
   const [dealerTotal, setDealerTotal] = useState(0);
+  const [offerSplit, setOfferSplit] = useState(false);
+  const [handleSplitAces, setHandleSplitAces] = useState(false);
+  const [splitBetAmount, setSplitBetAmount] = useState([]);
 
   const { shuffleCards } = useShuffleCards();
   const { dealInitialHand } = useDealInitialHand();
@@ -44,7 +54,14 @@ export default function GameBoard({
 
   useEffect(() => {
     if (shuffledCards.length > 0) {
-      dealInitialHand(shuffledCards, setDealerHand, setPlayerHand);
+      dealInitialHand(
+        shuffledCards,
+        setDealerHand,
+        setPlayerHand,
+        setOfferSplit,
+        bankTotal,
+        betTotal
+      );
     }
   }, [shuffledCards]);
 
@@ -52,11 +69,84 @@ export default function GameBoard({
     setLeftInShoe(shuffledCards.length);
   }, [playerHand, dealerHand, shuffledCards]);
 
+  // ************************************ HANDLE SPLIT ************************************
+
+  const handleSplit = () => {
+    if (playerHand[0].type === 'ace' && playerHand[1].type === 'ace') {
+      playerHand[0].value = 11;
+      playerHand[1].value = 11;
+      setHandleSplitAces(true);
+    }
+    setOfferSplit(false);
+    setSplitHand(playerHand.splice(1, 1));
+    // setBankTotal((prev) => prev - betTotal);
+    playerHandTotal = playerHand.reduce((total, obj) => obj.value + total, 0); //resets player total to deal with scoring aces
+    setSplitBetAmount(betChips); //to reset the bet amount for second hand of split
+
+    setTimeout(() => {
+      dealNextCard(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
+    }, 500);
+  };
+
+  // deals single card to split aces hands and scores the round
+  useEffect(() => {
+    if (handleSplitAces === true && playerHand.length > 1) {
+      let splitAceTimer = setTimeout(() => {
+        handleStay();
+      }, 1500);
+      return () => {
+        clearTimeout(splitAceTimer);
+      };
+    }
+  }, [handleSplitAces, playerHand]);
+
+  // moves original hand to gameboard after scoring the second hand
+  useEffect(() => {
+    if (scoreSplitHand === true) {
+      let splitHandTimer = setTimeout(() => {
+        setPlayerHand(splitHand);
+        setSplitHand([]);
+      }, 2000);
+
+      return () => {
+        clearTimeout(splitHandTimer);
+      };
+    }
+  }, [scoreSplitHand]);
+
+  // to score second hand of split
+  useEffect(() => {
+    if (scoreSplitHand === true) {
+      setBetChips(splitBetAmount); //new
+      setBetTotal(betChips.reduce((total, obj) => obj.value + total, 0));
+      // setBankTotal((prev) => prev + betTotal); //new
+      //deals rest of dealer hand if player busts on second hand of split & dealer only flipped
+      if (
+        splitHand.length === 0 &&
+        dealerHand.length === 2 &&
+        dealerTrueTotal < 17
+      ) {
+        console.log(betTotal);
+        completeDealersHandandScoreRound();
+      } else if (splitHand.length === 0) {
+        scoreTheRound();
+      }
+    }
+  }, [playerHandTotal, splitHand, betChips]);
+
   // ************************************ CHECK PLAYERS HAND WITH EVERY CARD DEALT ************************************
 
   // check if player hits 21 or busts with every hit
+  // now considers split hands as well
   useEffect(() => {
-    if (playerHandTotal >= 21) {
+    if (playerHandTotal >= 21 && splitHand.length === 1) {
+      let timer0 = setTimeout(() => {
+        handleStay();
+      }, 1000);
+      return () => {
+        clearTimeout(timer0);
+      };
+    } else if (playerHandTotal >= 21) {
       let timer1 = setTimeout(() => {
         setDealerFlip(true);
       }, 250);
@@ -70,7 +160,7 @@ export default function GameBoard({
 
   useEffect(() => {
     // handles whether to offer double down button
-    if (playerHand.length === 2) {
+    if (playerHand.length === 2 && splitHand.length === 0) {
       if (
         playerHandTotal > 8 &&
         playerHandTotal < 12 &&
@@ -94,24 +184,50 @@ export default function GameBoard({
   // ************************************ HANDLE HIT & STAY ************************************
 
   const handleHitMe = () => {
+    if (offerSplit === true) {
+      setOfferSplit(false);
+    }
+
     if (playerHandTotal <= 21) {
       dealNextCard(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
     }
   };
 
   const handleStay = () => {
-    setTimeout(() => {
+    if (offerSplit === true) {
+      setOfferSplit(false);
+    }
+
+    if (splitHand.length === 1) {
+      // moves the first completed split hand out of focus in order to play second hand
+      let tempPlayerHand = [];
+      tempPlayerHand.push(...playerHand);
+      setPlayerHand(splitHand);
+      setSplitHand(tempPlayerHand);
+    } else if (splitHand.length > 1) {
       setDealerFlip(true);
-    }, 250);
+    } else if (splitHand.length === 0) {
+      //for regular hands
+      setDealerFlip(true);
+    }
   };
+
+  // this corrects the bug where aces weren't scored correctly on the second split hand
+  useEffect(() => {
+    if (playerHand.length === 1 && splitHand.length > 0) {
+      playerHandTotal = playerHand.reduce((total, obj) => obj.value + total, 0); //resets player total to deal with scoring aces
+      let thisTimeout = setTimeout(() => {
+        dealNextCard(playerHand, playerHandTotal, setPlayerHand, shuffledCards);
+      }, 500);
+      return () => {
+        clearTimeout(thisTimeout);
+      };
+    }
+  }, [playerHand]);
 
   // ************************************ HANDLE COMPLETING DEALERS HAND & SCORE THE ROUND ************************************
 
-  useEffect(() => {
-    dealerFlip
-      ? setDealerTotal(dealerTrueTotal)
-      : setDealerTotal(dealerHiddenTotal);
-
+  const completeDealersHandandScoreRound = () => {
     if (
       playerHandTotal === 21 &&
       playerHand.length === 2 &&
@@ -132,6 +248,14 @@ export default function GameBoard({
     } else if (dealerFlip === true) {
       scoreTheRound();
     }
+  };
+
+  useEffect(() => {
+    dealerFlip
+      ? setDealerTotal(dealerTrueTotal)
+      : setDealerTotal(dealerHiddenTotal);
+
+    completeDealersHandandScoreRound();
   }, [dealerHand, dealerFlip, dealerTrueTotal]);
 
   // ************************************ SCORE THE ROUND ************************************
@@ -149,7 +273,11 @@ export default function GameBoard({
       playerHand.length === 2 &&
       dealerHand !== 21
     ) {
-      declareWinner('BLACKJACK!', handlePayout.blackJack);
+      if (handleSplitAces === true) {
+        declareWinner('You win!', handlePayout.playerWins);
+      } else {
+        declareWinner('BLACKJACK!', handlePayout.blackJack);
+      }
     } else if (dealerTrueTotal === playerHandTotal) {
       declareWinner('Push!', handlePayout.push);
     } else if (playerHandTotal === 21 && dealerTrueTotal !== 21) {
@@ -173,17 +301,26 @@ export default function GameBoard({
 
     setTimeout(() => {
       setWeHaveAWinner(true);
+      setBetChips([]); //new
       setBankTotal(bet);
-      setWeHaveAWinner(true);
     }, 1500);
   };
 
   return (
     <section className='game-board'>
-      <div className='game-btns'>
-        <Button title='Hit Me' size='btn-lg' clickHandler={handleHitMe} />
-        <Button title='Stay' size='btn-lg' clickHandler={handleStay} />
-      </div>
+      {!handleSplitAces && (
+        <div className='game-btns'>
+          <Button title='Hit' size='btn-lg' clickHandler={handleHitMe} />
+          <Button title='Stay' size='btn-lg' clickHandler={handleStay} />
+          {offerSplit && (
+            <Button
+              title='Split'
+              size='btn-lg split-btn'
+              clickHandler={handleSplit}
+            />
+          )}
+        </div>
+      )}
 
       <div className='card-hands'>
         <CardHand
@@ -200,6 +337,9 @@ export default function GameBoard({
           shuffledCards={shuffledCards}
         />
       </div>
+      {splitHand.length > 0 && (
+        <SplitHand splitHand={splitHand} betChips={betChips} />
+      )}
     </section>
   );
 }

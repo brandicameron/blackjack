@@ -1,266 +1,370 @@
 [
   {
     "value": 10,
-    "url": "/club-J.png",
-    "mobileUrl": "/club-J-m.png"
+    "displayValue": "J",
+    "bgUrl": "/jack.png",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 10,
-    "url": "/club-Q.png",
-    "mobileUrl": "/club-Q-m.png"
+    "displayValue": "Q",
+    "bgUrl": "/queen.png",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 10,
-    "url": "/club-K.png",
-    "mobileUrl": "/club-K-m.png"
+    "displayValue": "K",
+    "bgUrl": "/king.png",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 10,
-    "url": "/diamond-J.png",
-    "mobileUrl": "/diamond-J-m.png"
+    "displayValue": "J",
+    "bgUrl": "/jack.png",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 10,
-    "url": "/diamond-Q.png",
-    "mobileUrl": "/diamond-Q-m.png"
+    "displayValue": "Q",
+    "bgUrl": "/queen.png",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 10,
-    "url": "/diamond-K.png",
-    "mobileUrl": "/diamond-K-m.png"
+    "displayValue": "K",
+    "bgUrl": "/king.png",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 10,
-    "url": "/heart-J.png",
-    "mobileUrl": "/heart-J-m.png"
+    "displayValue": "J",
+    "bgUrl": "/jack.png",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 10,
-    "url": "/heart-Q.png",
-    "mobileUrl": "/heart-Q-m.png"
+    "displayValue": "Q",
+    "bgUrl": "/queen.png",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 10,
-    "url": "/heart-K.png",
-    "mobileUrl": "/heart-K-m.png"
+    "displayValue": "K",
+    "bgUrl": "/king.png",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 10,
-    "url": "/spade-J.png",
-    "mobileUrl": "/spade-J-m.png"
+    "displayValue": "J",
+    "bgUrl": "/jack.png",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 10,
-    "url": "/spade-Q.png",
-    "mobileUrl": "/spade-Q-m.png"
+    "displayValue": "Q",
+    "bgUrl": "/queen.png",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 10,
-    "url": "/spade-K.png",
-    "mobileUrl": "/spade-K-m.png"
+    "displayValue": "K",
+    "bgUrl": "/king.png",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 2,
-    "url": "/club-2.svg",
-    "mobileUrl": "/club-2.svg"
+    "displayValue": 2,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 3,
-    "url": "/club-3.svg",
-    "mobileUrl": "/club-3.svg"
+    "displayValue": 3,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 4,
-    "url": "/club-4.svg",
-    "mobileUrl": "/club-4.svg"
+    "displayValue": 4,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 5,
-    "url": "/club-5.svg",
-    "mobileUrl": "/club-5.svg"
+    "displayValue": 5,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 6,
-    "url": "/club-6.svg",
-    "mobileUrl": "/club-6.svg"
+    "displayValue": 6,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 7,
-    "url": "/club-7.svg",
-    "mobileUrl": "/club-7.svg"
+    "displayValue": 7,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 8,
-    "url": "/club-8.svg",
-    "mobileUrl": "/club-8.svg"
+    "displayValue": 8,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 9,
-    "url": "/club-9.svg",
-    "mobileUrl": "/club-9.svg"
+    "displayValue": 9,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 10,
-    "url": "/club-10.svg",
-    "mobileUrl": "/club-10.svg"
+    "displayValue": 10,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000"
   },
   {
     "value": 11,
-    "url": "/club-A.svg",
-    "mobileUrl": "/club-A.svg",
+    "displayValue": "A",
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club.svg",
+    "color": "#000000",
     "type": "ace"
   },
   {
     "value": 2,
-    "url": "/diamond-2.svg",
-    "mobileUrl": "/diamond-2.svg"
+    "displayValue": 2,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 3,
-    "url": "/diamond-3.svg",
-    "mobileUrl": "/diamond-3.svg"
+    "displayValue": 3,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 4,
-    "url": "/diamond-4.svg",
-    "mobileUrl": "/diamond-4.svg"
+    "displayValue": 4,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 5,
-    "url": "/diamond-5.svg",
-    "mobileUrl": "/diamond-5.svg"
+    "displayValue": 5,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 6,
-    "url": "/diamond-6.svg",
-    "mobileUrl": "/diamond-6.svg"
+    "displayValue": 6,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 7,
-    "url": "/diamond-7.svg",
-    "mobileUrl": "/diamond-7.svg"
+    "displayValue": 7,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 8,
-    "url": "/diamond-8.svg",
-    "mobileUrl": "/diamond-8.svg"
+    "displayValue": 8,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 9,
-    "url": "/diamond-9.svg",
-    "mobileUrl": "/diamond-9.svg"
+    "displayValue": 9,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 10,
-    "url": "/diamond-10.svg",
-    "mobileUrl": "/diamond-10.svg"
+    "displayValue": 10,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707"
   },
   {
     "value": 11,
-    "url": "/diamond-A.svg",
-    "mobileUrl": "/diamond-A.svg",
+    "displayValue": "A",
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond.svg",
+    "color": "#b70707",
     "type": "ace"
   },
   {
     "value": 2,
-    "url": "/heart-2.svg",
-    "mobileUrl": "/heart-2.svg"
+    "displayValue": 2,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 3,
-    "url": "/heart-3.svg",
-    "mobileUrl": "/heart-3.svg"
+    "displayValue": 3,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 4,
-    "url": "/heart-4.svg",
-    "mobileUrl": "/heart-4.svg"
+    "displayValue": 4,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 5,
-    "url": "/heart-5.svg",
-    "mobileUrl": "/heart-5.svg"
+    "displayValue": 5,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 6,
-    "url": "/heart-6.svg",
-    "mobileUrl": "/heart-6.svg"
+    "displayValue": 6,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 7,
-    "url": "/heart-7.svg",
-    "mobileUrl": "/heart-7.svg"
+    "displayValue": 7,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 8,
-    "url": "/heart-8.svg",
-    "mobileUrl": "/heart-8.svg"
+    "displayValue": 8,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 9,
-    "url": "/heart-9.svg",
-    "mobileUrl": "/heart-9.svg"
+    "displayValue": 9,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 10,
-    "url": "/heart-10.svg",
-    "mobileUrl": "/heart-10.svg"
+    "displayValue": 10,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707"
   },
   {
     "value": 11,
-    "url": "/heart-A.svg",
-    "mobileUrl": "/heart-A.svg",
+    "displayValue": "A",
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart.svg",
+    "color": "#b70707",
     "type": "ace"
   },
   {
     "value": 2,
-    "url": "/spade-2.svg",
-    "mobileUrl": "/spade-2.svg"
+    "displayValue": 2,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 3,
-    "url": "/spade-3.svg",
-    "mobileUrl": "/spade-3.svg"
+    "displayValue": 3,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 4,
-    "url": "/spade-4.svg",
-    "mobileUrl": "/spade-4.svg"
+    "displayValue": 4,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 5,
-    "url": "/spade-5.svg",
-    "mobileUrl": "/spade-5.svg"
+    "displayValue": 5,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 6,
-    "url": "/spade-6.svg",
-    "mobileUrl": "/spade-6.svg"
+    "displayValue": 6,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 7,
-    "url": "/spade-7.svg",
-    "mobileUrl": "/spade-7.svg"
+    "displayValue": 7,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 8,
-    "url": "/spade-8.svg",
-    "mobileUrl": "/spade-8.svg"
+    "displayValue": 8,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 9,
-    "url": "/spade-9.svg",
-    "mobileUrl": "/spade-9.svg"
+    "displayValue": 9,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 10,
-    "url": "/spade-10.svg",
-    "mobileUrl": "/spade-10.svg"
+    "displayValue": 10,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000"
   },
   {
     "value": 11,
-    "url": "/spade-A.svg",
-    "mobileUrl": "/spade-A.svg",
+    "displayValue": "A",
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade.svg",
+    "color": "#000000",
     "type": "ace"
   }
 ]

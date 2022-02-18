@@ -23,12 +23,22 @@ export default function Bank({ setBetChips, beginRound, bankTotal, betTotal }) {
   }, [currentBankTotal]);
 
   const handlePlaceBet = (e) => {
+    let loc = e.target.getBoundingClientRect();
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
     setBetChips((prev) => [
       ...prev,
       {
         value: parseInt(e.target.dataset.value),
         url: `/chip-${e.target.dataset.value}.png`,
         id: e.target.dataset.id,
+        x: loc.x,
+        y: loc.y,
+        ww: width,
+        wh: height,
+        w: loc.width,
+        h: loc.height,
       },
     ]);
   };

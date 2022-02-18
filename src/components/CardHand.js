@@ -7,39 +7,49 @@ export default function CardHand({
   shuffledCards,
   dealerFlip,
 }) {
-  let mobile = '/club-K-m.png';
   return (
-    <section className='card-hand'>
+    <section className='card-hand flex-center-column'>
       {shuffledCards.length > 0 &&
         playerOrDealerHand.map((card, index) => (
           <div
             className={
-              index === 0 && dealerFlip === false ? 'card' : 'card flipped'
+              index === 0 && dealerFlip === false ? 'card flipped' : 'card'
             }
-            key={`${card.url}-${playerOrDealer}-${index}`}
+            key={`${card.value}-${playerOrDealer}-${index}`}
             style={{
-              left: `${index * (window.innerWidth > 600 ? 30 : 20)}px`,
-              top: `${index * 5}px`,
+              left: `${index * (window.innerWidth > 900 ? 40 : 20)}px`,
+              top: `${index * (window.innerWidth > 900 ? 15 : 10)}px`,
+              zIndex: `${index === 0 ? -100 : 0}`,
             }}
           >
-            {playerOrDealer === 'Dealer' && index === 0 && (
-              <div className='card-back'></div>
-            )}
             <div className='card-front'>
-              <picture className='playing-card'>
-                <source
-                  media='(max-width: 900px)'
-                  srcSet={require(`../images/cards${card.mobileUrl}`)}
-                  type='image/png'
-                />
+              <img
+                src={require(`../images/card-icons${card.bgUrl}`)}
+                alt=''
+                className='card-bg-img'
+              />
+              <div className='card-info flex-center-column'>
+                <p
+                  className='card-value bold'
+                  style={{ color: `${card.color}` }}
+                >
+                  {card.displayValue}
+                </p>
                 <img
-                  src={require(`../images/cards${card.url}`)}
+                  src={require(`../images/card-icons${card.iconUrl}`)}
                   alt={card.value}
-                  className='playing-card'
-                  width='288'
-                  height='403'
+                  className='card-icon'
+                  width='248'
+                  height='346'
                 />
-              </picture>
+              </div>
+              {playerOrDealer === 'Dealer' && index === 0 && (
+                <div
+                  className={
+                    dealerFlip === false ? 'card-back' : 'card-back rotate'
+                  }
+                ></div>
+              )}
             </div>
           </div>
         ))}

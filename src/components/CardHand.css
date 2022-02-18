@@ -1,68 +1,123 @@
 .card-hand {
   position: relative;
-  min-width: 200px;
-  height: 23vh;
-  min-height: 200px;
-  z-index: -1;
+  height: 25vh;
+  margin-left: -75px;
+  z-index: -1000;
 }
 
 .card {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: clamp(12vh, 12vw, 170px);
+  aspect-ratio: 2/3;
+  filter: drop-shadow(2px 2px 3px rgba(0 0 0 / 50%));
+  -webkit-transition: transform 0.6s;
   transition: transform 0.6s;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   /* Below fixes weird safari bug that caused flipped card to show on top instead of bottom of stack */
-  transform: translateZ(-1000px);
-  -webkit-transform: translateZ(-1000px);
-  z-index: -1;
+  transform: translateZ(1000px);
+  -webkit-transform: translateZ(1000px);
 }
 
 .flipped {
-  position: absolute;
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  z-index: -1;
 }
 
 .card-back,
 .card-front {
   position: absolute;
-  backface-visibility: hidden;
+  top: 0;
   width: 100%;
   height: 100%;
-}
-
-.card-back {
-  background-image: url(../images/cards/card-back.png);
+  background-color: #f1f2f2;
+  border-radius: 10px;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .card-front {
-  transform: rotateY(-180deg);
-}
-
-.playing-card {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(2px 2px 3px rgba(0 0 0 / 50%));
-  object-fit: contain;
+  opacity: 0;
+  -webkit-transform: translateY(-40vh);
   transform: translateY(-40vh);
+  -webkit-animation: deal 100ms ease-in forwards;
   animation: deal 100ms ease-in forwards;
 }
 
+/* .card-hand:nth-child(2) > .card:nth-child(1) > .card-front:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.card-hand:nth-child(1) > .card:nth-child(1) > .card-front:nth-child(1) {
+  animation-delay: 150ms;
+}
+
+.card-hand:nth-child(2) > .card:nth-child(2) > .card-front:nth-child(1) {
+  animation-delay: 300ms;
+}
+
+.card-hand:nth-child(1) > .card:nth-child(2) > .card-front:nth-child(1) {
+  animation-delay: 450ms;
+} */
+
 @keyframes deal {
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
+    opacity: 1;
   }
+}
+
+.card-back {
+  background-image: url(../images/card-icons/card-back.png);
+  background-size: 88%;
+}
+
+.rotate {
+  -webkit-animation: rotate 150ms linear 150ms forwards;
+  animation: rotate 150ms linear 150ms forwards;
+}
+
+@keyframes rotate {
+  100% {
+    opacity: 0;
+    -webkit-transform: rotateY(-180deg) translateY(0);
+    transform: rotateY(-180deg) translateY(0);
+  }
+}
+
+.card-bg-img {
+  position: absolute;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  position: relative;
+  width: fit-content;
+  margin-top: 5px;
+  margin-left: 3px;
+}
+
+.card-value {
+  font-size: 3.5rem;
+  line-height: 90%;
+  letter-spacing: -5px;
+  width: fit-content;
+}
+
+.card-icon {
+  width: 25px;
+  height: 30px;
+  margin-top: -2px;
 }
 
 .hand-total {
   position: relative;
-  top: 6vh;
-  left: 300px;
+  left: clamp(175px, 30vw, 400px);
   background-color: var(--blk40);
   border-radius: 50%;
   width: 100px;
@@ -74,39 +129,47 @@
 }
 
 @media screen and (orientation: landscape) and (pointer: coarse) {
-  .card-hand {
-    min-height: 0;
+  .card {
+    width: 11vw;
+  }
+
+  .card-value {
+    font-size: 3rem;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .card-back {
-    background-image: url(../images/cards/card-back-m.png);
-  }
-
   .card-hand {
-    height: 17vh;
-    min-height: 0;
+    margin-left: -35px;
   }
 
   .hand-total {
-    left: -50px;
+    left: -30vw;
     width: 70px;
     height: 70px;
     font-size: 1rem;
+  }
+
+  .card-info {
+    margin-top: 3px;
+    margin-left: 1px;
+  }
+
+  .card-value {
+    font-size: 1.7rem;
+    letter-spacing: -2px;
+  }
+
+  .card-icon {
+    width: 15px;
+    height: auto;
+    margin-top: -4px;
+    margin-left: 3px;
   }
 }
-@media screen and (max-height: 550px) {
-  .card-hand {
-    height: 17vh;
-    min-height: 0;
-  }
 
+@media screen and (max-height: 550px) {
   .hand-total {
-    top: 2.5vh;
-    left: -50px;
-    width: 70px;
-    height: 70px;
-    font-size: 1rem;
+    border: 2px solid red;
   }
 }

@@ -1,12 +1,15 @@
 .placed-bet {
   position: absolute;
-  width: 100vw;
-  height: var(--height-minus-header);
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
 }
 
 .instructions {
   position: absolute;
-  top: 40%;
+  top: 20%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
@@ -26,8 +29,8 @@
   align-items: center;
   height: 120px;
   width: 120px;
-  margin: -50px auto 10px auto;
-  z-index: 100;
+  margin-bottom: 10px;
+  z-index: 1000;
 }
 
 .chip-bet {
@@ -36,6 +39,13 @@
   height: 100%;
   max-width: 115px;
   max-height: 115px;
+  animation: bet 150ms linear forwards;
+}
+
+@keyframes bet {
+  100% {
+    transform: translateY(0) translateX(0);
+  }
 }
 
 .bet-text {
@@ -45,37 +55,30 @@
   border-radius: var(--border-radius);
 }
 
-.empty-element-for-flex-btn-positioning {
-  min-width: 190px;
-  height: 100px;
-  padding: 0 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 @media screen and (orientation: landscape) and (pointer: coarse) {
   .bet-area {
+    margin-top: 25px;
     width: 100px;
     height: 100px;
+  }
+  .bet-text {
+    padding: 3px 10px;
   }
 }
 
 @media screen and (max-width: 900px) {
   .bet-area {
-    width: 75px;
-    height: 75px;
-    margin: -50px auto 5px auto;
+    width: 65px;
+    height: 65px;
   }
 
   .instructions {
-    top: 30%;
+    top: 0;
     padding: 15px 30px 20px 30px;
     width: 80vw;
   }
 
   .bet-text {
-    font-size: 1.4rem;
     padding: 3px 10px;
   }
 }

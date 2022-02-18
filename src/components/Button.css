@@ -18,7 +18,7 @@
 
 .btn-lg {
   min-width: 190px;
-  height: 100px;
+  height: 85px;
   font-size: 3rem;
   padding: 0 15px;
   display: flex;
@@ -39,17 +39,18 @@
   width: 100px;
   border-radius: 50%;
   font-size: 1.4rem;
+  left: -3px;
+  top: 2px;
   z-index: 101;
   animation: pulse 300ms linear 250ms 3 forwards;
+  z-index: 30000;
 }
 
-.game-btns {
+.split-btn {
   position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 60vw;
-  max-width: 791px;
+  top: -100px;
+  right: 0;
+  animation: pulse-light 200ms linear 250ms 2 forwards;
 }
 
 @keyframes pulse {
@@ -64,9 +65,30 @@
   }
 }
 
+@keyframes pulse-light {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .btn:hover {
   background-size: 200%;
   background-position: right center;
+}
+
+.game-btns {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60vw;
+  max-width: 791px;
 }
 
 @media screen and (orientation: landscape) and (pointer: coarse) {
@@ -74,14 +96,15 @@
     height: 85px;
     width: 85px;
     font-size: 1.15rem;
+    left: 0;
+    top: 0;
   }
 }
 
 @media screen and (max-width: 900px) {
   .btn-lg {
-    min-width: 80px;
-    max-width: 80px;
-    height: 80px;
+    min-width: 90px;
+    height: 60px;
     font-size: 1.8rem;
   }
 
@@ -96,9 +119,11 @@
   }
 
   .btn-round {
-    height: 65px;
-    width: 65px;
+    height: 58px;
+    width: 58px;
     font-size: 0.9rem;
+    left: 0;
+    top: 0;
   }
 
   .game-btns {

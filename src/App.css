@@ -1,8 +1,8 @@
 :root {
   --gradient: linear-gradient(
     52deg,
-    rgb(47, 69, 235) 0%,
-    rgb(58, 95, 238) 63%,
+    #2f45eb 0%,
+    #3a5fee 63%,
     rgb(77, 154, 255) 100%
   );
   --border-radius: 15px;
@@ -61,7 +61,7 @@
   }
 
   .display-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .lg-text {

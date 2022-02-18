@@ -16,8 +16,12 @@
 }
 
 @media screen and (max-width: 900px) {
+  .game-board {
+    margin-top: 0;
+  }
+
   .card-hands {
-    height: 58vh;
+    height: 68vh;
   }
 }
 

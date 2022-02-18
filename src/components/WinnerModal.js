@@ -1,4 +1,5 @@
 import './WinnerModal.css';
+import React, { useEffect } from 'react';
 import Button from './Button';
 
 export default function WinnerModal({
@@ -6,43 +7,43 @@ export default function WinnerModal({
   setBeginRound,
   setWeHaveAWinner,
   winnerMessage,
-  dealDoubleDown,
   setDealDoubleDown,
-  originalBetAmount,
-  setBetChips,
-  bankTotal,
+  splitHand,
+  scoreSplitHand,
+  setScoreSplitHand,
 }) {
+  //removes play again button & take you back to the game board on Split hand
+  useEffect(() => {
+    if (splitHand.length > 1) {
+      setScoreSplitHand(true);
+      let timer = setTimeout(() => {
+        setWeHaveAWinner(false);
+      }, 1500);
+      return () => {
+        clearTimeout(timer);
+      };
+    } else if (splitHand.length === 0) {
+      setScoreSplitHand(false);
+    }
+  }, []);
+
   const handlePlayAgain = () => {
     setStartGame(true);
     setBeginRound(false);
     setWeHaveAWinner(false);
-
-    // reverts original bet amount after a double down situation
-    if (
-      dealDoubleDown === true &&
-      originalBetAmount.reduce((total, obj) => obj.value + total, 0) < bankTotal
-    ) {
-      setBetChips(originalBetAmount);
-    } else if (
-      dealDoubleDown === true &&
-      originalBetAmount.reduce((total, obj) => obj.value + total, 0) > bankTotal
-    ) {
-      setBetChips([]);
-    }
-    // if (dealDoubleDown === true) {
-    //   setBetChips(originalBetAmount);
-    // }
     setDealDoubleDown(false);
   };
 
   return (
     <section className='winner-modal'>
       <h1 className='winner-message'>{winnerMessage}</h1>
-      <Button
-        title='Play Again'
-        size='btn-lg play-again'
-        clickHandler={handlePlayAgain}
-      />
+      {!scoreSplitHand && (
+        <Button
+          title='Play Again'
+          size='btn-lg play-again'
+          clickHandler={handlePlayAgain}
+        />
+      )}
     </section>
   );
 }

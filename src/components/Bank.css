@@ -45,7 +45,7 @@
 }
 
 .lower-bank {
-  transform: translateY(290px);
+  transform: translateY(280px);
 }
 
 @media screen and (orientation: landscape) and (pointer: coarse) {

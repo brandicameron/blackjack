@@ -13,6 +13,7 @@ function App() {
   const [leftInShoe, setLeftInShoe] = useState(0);
   const [betChips, setBetChips] = useState([]);
   const [betTotal, setBetTotal] = useState(0);
+  const [prevBetAmount, setPrevBetAmount] = useState([]);
   const [bankTotal, setBankTotal] = useState(1000);
   const [weHaveAWinner, setWeHaveAWinner] = useState(false);
   const [winnerMessage, setWinnerMessage] = useState('');
@@ -21,6 +22,9 @@ function App() {
   const [offerDoubleDown, setOfferDoubleDown] = useState(false);
   const [dealDoubleDown, setDealDoubleDown] = useState(false);
   const [originalBetAmount, setOriginalBetAmount] = useState([]);
+  //for splitting a hand
+  const [splitHand, setSplitHand] = useState([]);
+  const [scoreSplitHand, setScoreSplitHand] = useState(false);
 
   return (
     <main>
@@ -40,6 +44,8 @@ function App() {
           setBetChips={setBetChips}
           betTotal={betTotal}
           setBetTotal={setBetTotal}
+          prevBetAmount={prevBetAmount}
+          setPrevBetAmount={setPrevBetAmount}
           beginRound={beginRound}
           setBeginRound={setBeginRound}
           bankTotal={bankTotal}
@@ -58,10 +64,16 @@ function App() {
           bankTotal={bankTotal}
           setBankTotal={setBankTotal}
           betTotal={betTotal}
+          setBetTotal={setBetTotal}
           shuffledCards={shuffledCards}
           setShuffledCards={setShuffledCards}
           setOfferDoubleDown={setOfferDoubleDown}
           dealDoubleDown={dealDoubleDown}
+          betChips={betChips}
+          setBetChips={setBetChips}
+          splitHand={splitHand}
+          setSplitHand={setSplitHand}
+          scoreSplitHand={scoreSplitHand}
         />
       )}
       {weHaveAWinner && (
@@ -70,11 +82,10 @@ function App() {
           setWeHaveAWinner={setWeHaveAWinner}
           setBeginRound={setBeginRound}
           winnerMessage={winnerMessage}
-          dealDoubleDown={dealDoubleDown}
           setDealDoubleDown={setDealDoubleDown}
-          originalBetAmount={originalBetAmount}
-          setBetChips={setBetChips}
-          bankTotal={bankTotal}
+          splitHand={splitHand}
+          scoreSplitHand={scoreSplitHand}
+          setScoreSplitHand={setScoreSplitHand}
         />
       )}
     </main>

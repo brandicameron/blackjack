@@ -1,5 +1,12 @@
 export function useDealInitialHand() {
-  const dealInitialHand = (cards, setDealer, setPlayer) => {
+  const dealInitialHand = (
+    cards,
+    setDealer,
+    setPlayer,
+    setOfferSplit,
+    bankTotal,
+    betTotal
+  ) => {
     let cardsForInitialDeal = undefined;
     cardsForInitialDeal = cards.splice(0, 4);
 
@@ -23,21 +30,59 @@ export function useDealInitialHand() {
       }
     };
 
-    handleDoubleAcesOnDeal();
-    setDealer(dealerTempArray);
-    setPlayer(playerTempArray);
+    const handleOfferSplitHand = () => {
+      if (
+        playerTempArray[0].value === playerTempArray[1].value &&
+        bankTotal >= betTotal * 2
+      ) {
+        setOfferSplit(true);
+      } else if (
+        playerTempArray[0].type === 'ace' &&
+        playerTempArray[1].type === 'ace' &&
+        bankTotal >= betTotal * 2
+      ) {
+        setOfferSplit(true);
+      }
+    };
 
-    // setPlayer([
+    // dealerTempArray = [
+    //   {
+    //     value: 7,
+    //     displayValue: 7,
+    //     bgUrl: '/spade.svg',
+    //     iconUrl: '/spade.svg',
+    //     color: '#000000',
+    //   },
     //   {
     //     value: 10,
-    //     url: '/heart-Q.png',
+    //     displayValue: 'Q',
+    //     bgUrl: '/queen.png',
+    //     iconUrl: '/heart.svg',
+    //     color: '#b70707',
+    //   },
+    // ];
+
+    // playerTempArray = [
+    //   {
+    //     value: 10,
+    //     displayValue: 'K',
+    //     bgUrl: '/king.png',
+    //     iconUrl: '/spade.svg',
+    //     color: '#000000',
     //   },
     //   {
-    //     value: 11,
-    //     url: '/diamond-A.svg',
-    //     type: 'ace',
+    //     value: 8,
+    //     displayValue: 8,
+    //     bgUrl: '/spade.svg',
+    //     iconUrl: '/spade.svg',
+    //     color: '#000000',
     //   },
-    // ]);
+    // ];
+
+    handleDoubleAcesOnDeal();
+    handleOfferSplitHand();
+    setDealer(dealerTempArray);
+    setPlayer(playerTempArray);
   };
   return { dealInitialHand };
 }
