@@ -20,10 +20,14 @@ export default function Bet({
 }) {
   // adds previous bet amount automatically if a round has already been played
   useEffect(() => {
+    let prevBetTotal = prevBetAmount.reduce(
+      (total, obj) => obj.value + total,
+      0
+    );
     if (
       beginRound === false &&
       prevBetAmount.length > 0 &&
-      bankTotal >= prevBetAmount
+      bankTotal >= prevBetTotal
     ) {
       let prevBetTimer = setTimeout(() => {
         setBetChips(prevBetAmount);

@@ -45,8 +45,8 @@
   opacity: 0;
   -webkit-transform: translateY(-40vh);
   transform: translateY(-40vh);
-  -webkit-animation: deal 100ms ease-in forwards;
-  animation: deal 100ms ease-in forwards;
+  -webkit-animation: deal 100ms linear forwards;
+  animation: deal 100ms linear forwards;
 }
 
 /* .card-hand:nth-child(2) > .card:nth-child(1) > .card-front:nth-child(1) {
