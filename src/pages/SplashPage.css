@@ -24,7 +24,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .splash-page {
-    background-position: center 40%;
+  .splash-page-graphic {
+    margin: -20px 0 20px 0;
   }
 }

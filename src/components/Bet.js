@@ -61,7 +61,7 @@ export default function Bet({
   };
 
   const handleDealButton = () => {
-    setActiveSplitHand(false);
+    setActiveSplitHand(false); //restores ability to grant a blackjack payout
     setBeginRound(true);
     setPrevBetAmount(betChips);
   };
