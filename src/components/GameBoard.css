@@ -23,6 +23,10 @@
   .card-hands {
     height: 68vh;
   }
+
+  .split-btn {
+    margin-top: 25px;
+  }
 }
 
 @media screen and (max-height: 550px) {

@@ -7,6 +7,7 @@
   align-items: center;
   width: 70px;
   height: 100px;
+  transition: all 500ms linear;
 }
 
 .split-card {

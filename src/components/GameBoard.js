@@ -78,6 +78,7 @@ export default function GameBoard({
       setHandleSplitAces(true);
     }
     setOfferSplit(false);
+    setOfferDoubleDown(false);
     setSplitHand(playerHand.splice(1, 1));
     // setBankTotal((prev) => prev - betTotal);
     playerHandTotal = playerHand.reduce((total, obj) => obj.value + total, 0); //resets player total to deal with scoring aces
@@ -126,7 +127,6 @@ export default function GameBoard({
         dealerHand.length === 2 &&
         dealerTrueTotal < 17
       ) {
-        console.log(betTotal);
         completeDealersHandandScoreRound();
       } else if (splitHand.length === 0) {
         scoreTheRound();
