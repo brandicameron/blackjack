@@ -43,7 +43,11 @@ export default function Bet({
   const handleRemoveChip = (e) => {
     if (beginRound === false) {
       const target = e.target.dataset.id;
-      setBetChips(betChips.filter((item) => target !== item.id));
+      e.target.parentElement.className = 'chip-btn chip-bet remove-chip';
+
+      setTimeout(() => {
+        setBetChips(betChips.filter((item) => target !== item.id));
+      }, 200);
     }
   };
 

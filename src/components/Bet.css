@@ -39,10 +39,22 @@
   height: 100%;
   max-width: 115px;
   max-height: 115px;
-  animation: bet 150ms linear forwards;
+  -webkit-animation: bet 150ms ease-out forwards;
+  animation: bet 150ms ease-out forwards;
 }
 
 @keyframes bet {
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.remove-chip {
+  -webkit-animation: remove 150ms ease-out reverse;
+  animation: remove 150ms ease-out reverse;
+}
+
+@keyframes remove {
   100% {
     transform: translateY(0) translateX(0);
   }
