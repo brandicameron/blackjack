@@ -43,7 +43,11 @@ export default function Bet({
   const handleRemoveChip = (e) => {
     if (beginRound === false) {
       const target = e.target.dataset.id;
-      e.target.parentElement.className = 'chip-btn chip-bet remove-chip';
+      const item = betChips.find((chip) => target === chip.id);
+
+      setBetChips(
+        (prev) => ((item.classes = 'chip-btn chip-bet remove-chip'), [...prev])
+      );
 
       setTimeout(() => {
         setBetChips(betChips.filter((item) => target !== item.id));
@@ -80,7 +84,7 @@ export default function Bet({
         )}
         {betChips.map((chip, index) => (
           <button
-            className='chip-btn chip-bet'
+            className={chip.classes}
             key={`${chip.value}-${index}`}
             style={{
               left: `${index * 3}px`,

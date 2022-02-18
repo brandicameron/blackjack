@@ -39,6 +39,7 @@ export default function Bank({ setBetChips, beginRound, bankTotal, betTotal }) {
         wh: height,
         w: location.width,
         h: location.height,
+        classes: 'chip-btn chip-bet',
       },
     ]);
   };
