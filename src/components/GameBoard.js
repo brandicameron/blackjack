@@ -25,6 +25,8 @@ export default function GameBoard({
   splitHand,
   setSplitHand,
   scoreSplitHand,
+  activeSplitHand,
+  setActiveSplitHand,
 }) {
   const [dealerHand, setDealerHand] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
@@ -77,6 +79,7 @@ export default function GameBoard({
       playerHand[1].value = 11;
       setHandleSplitAces(true);
     }
+    setActiveSplitHand(true);
     setOfferSplit(false);
     setOfferDoubleDown(false);
     setSplitHand(playerHand.splice(1, 1));
@@ -273,7 +276,7 @@ export default function GameBoard({
       playerHand.length === 2 &&
       dealerHand !== 21
     ) {
-      if (handleSplitAces === true) {
+      if (activeSplitHand === true) {
         declareWinner('You win!', handlePayout.playerWins);
       } else {
         declareWinner('BLACKJACK!', handlePayout.blackJack);

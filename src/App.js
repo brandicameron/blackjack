@@ -25,6 +25,7 @@ function App() {
   //for splitting a hand
   const [splitHand, setSplitHand] = useState([]);
   const [scoreSplitHand, setScoreSplitHand] = useState(false);
+  const [activeSplitHand, setActiveSplitHand] = useState(false);
 
   return (
     <main>
@@ -53,6 +54,7 @@ function App() {
           setOfferDoubleDown={setOfferDoubleDown}
           setDealDoubleDown={setDealDoubleDown}
           setOriginalBetAmount={setOriginalBetAmount}
+          setActiveSplitHand={setActiveSplitHand}
         />
       )}
       {beginRound && (
@@ -74,6 +76,8 @@ function App() {
           splitHand={splitHand}
           setSplitHand={setSplitHand}
           scoreSplitHand={scoreSplitHand}
+          activeSplitHand={activeSplitHand}
+          setActiveSplitHand={setActiveSplitHand}
         />
       )}
       {weHaveAWinner && (

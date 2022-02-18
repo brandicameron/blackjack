@@ -16,10 +16,15 @@ export default function Bet({
   setOfferDoubleDown,
   setDealDoubleDown,
   setOriginalBetAmount,
+  setActiveSplitHand,
 }) {
   // adds previous bet amount automatically if a round has already been played
   useEffect(() => {
-    if (beginRound === false && prevBetAmount.length > 0) {
+    if (
+      beginRound === false &&
+      prevBetAmount.length > 0 &&
+      bankTotal >= prevBetAmount
+    ) {
       let prevBetTimer = setTimeout(() => {
         setBetChips(prevBetAmount);
       }, 500);
@@ -56,6 +61,7 @@ export default function Bet({
   };
 
   const handleDealButton = () => {
+    setActiveSplitHand(false);
     setBeginRound(true);
     setPrevBetAmount(betChips);
   };

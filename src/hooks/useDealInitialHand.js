@@ -64,16 +64,17 @@ export function useDealInitialHand() {
 
     // playerTempArray = [
     //   {
+    //     value: 11,
+    //     displayValue: 'A',
+    //     bgUrl: '/spade.svg',
+    //     iconUrl: '/spade.svg',
+    //     color: '#000000',
+    //     type: 'ace',
+    //   },
+    //   {
     //     value: 10,
     //     displayValue: 'K',
     //     bgUrl: '/king.png',
-    //     iconUrl: '/spade.svg',
-    //     color: '#000000',
-    //   },
-    //   {
-    //     value: 8,
-    //     displayValue: 8,
-    //     bgUrl: '/spade.svg',
     //     iconUrl: '/spade.svg',
     //     color: '#000000',
     //   },
