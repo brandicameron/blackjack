@@ -9,7 +9,7 @@
   --backer-opacity: 45%;
   --dotted-border: 2px dotted #fff;
   --blk40: rgba(0, 0, 0, 0.2);
-  --height-minus-header: calc(100vh - 120px);
+  --height-minus-header: calc(100vh - 100px);
   --horizontalCardDistance: 30;
   --verticalCardDistance: 5;
 }
@@ -49,7 +49,7 @@
   margin-bottom: 10px;
 }
 
-@media screen and (orientation: landscape) and (pointer: coarse) {
+/* @media screen and (orientation: landscape) and (pointer: coarse) {
   :root {
     --height-minus-header: calc(100vh - 23vh);
   }
@@ -74,4 +74,4 @@
   .display-text {
     font-size: 1.3rem;
   }
-}
+} */

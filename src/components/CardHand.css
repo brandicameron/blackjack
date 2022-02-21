@@ -1,15 +1,19 @@
 .card-hand {
   position: relative;
-  height: 25vh;
-  margin-left: -75px;
+  width: 150px;
+  height: 215px;
   z-index: -1000;
 }
 
 .card {
   position: absolute;
-  width: clamp(12vh, 11vw, 170px);
-  aspect-ratio: 2/3;
-  filter: drop-shadow(1px 3px 5px rgba(0 0 0 / 30%));
+  width: 100%;
+  height: 30vh;
+  max-height: 215px;
+  max-width: 150px;
+
+  /* width: 120px;
+  height: 170px; */
   -webkit-transition: transform 0.6s;
   transition: transform 0.6s;
   -webkit-transform-style: preserve-3d;
@@ -24,46 +28,19 @@
   transform: rotateY(180deg);
 }
 
+.card-front,
 .card-back,
-.card-front {
+.card-bg {
   position: absolute;
-  top: 0;
   width: 100%;
   height: 100%;
-  background-color: #f1f2f2;
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0px 0px 10px -2px rgba(80, 45, 40, 0.3);
-  box-shadow: inset 0px 0px 10px -2px rgba(80, 45, 40, 0.3);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.card-front {
+  top: 0;
   opacity: 0;
   -webkit-transform: translateY(-40vh);
   transform: translateY(-40vh);
   -webkit-animation: deal 100ms linear forwards;
   animation: deal 100ms linear forwards;
 }
-
-/* .card-hand:nth-child(2) > .card:nth-child(1) > .card-front:nth-child(1) {
-  animation-delay: 0ms;
-}
-
-.card-hand:nth-child(1) > .card:nth-child(1) > .card-front:nth-child(1) {
-  animation-delay: 150ms;
-}
-
-.card-hand:nth-child(2) > .card:nth-child(2) > .card-front:nth-child(1) {
-  animation-delay: 300ms;
-}
-
-.card-hand:nth-child(1) > .card:nth-child(2) > .card-front:nth-child(1) {
-  animation-delay: 450ms;
-} */
 
 @keyframes deal {
   100% {
@@ -73,9 +50,27 @@
   }
 }
 
-.card-back {
-  background-image: url(../images/card-icons/card-back.png);
-  background-size: 88%;
+.card-front {
+  background-size: cover;
+}
+
+.card-info {
+  width: fit-content;
+  margin: 5px 0 0 3px;
+}
+
+.card-value {
+  font-size: 3.5rem;
+  line-height: 90%;
+  letter-spacing: -5px;
+  width: fit-content;
+}
+
+.card-sm-icon {
+  position: relative;
+  width: 25px;
+  height: 30px;
+  margin-top: -2px;
 }
 
 .rotate {
@@ -91,35 +86,12 @@
   }
 }
 
-.card-bg-img {
-  position: absolute;
-  height: 100%;
-  object-fit: cover;
-}
-
-.card-info {
-  position: relative;
-  width: fit-content;
-  margin-top: 5px;
-  margin-left: 3px;
-}
-
-.card-value {
-  font-size: 3.5rem;
-  line-height: 90%;
-  letter-spacing: -5px;
-  width: fit-content;
-}
-
-.card-icon {
-  width: 25px;
-  height: 30px;
-  margin-top: -2px;
-}
-
 .hand-total {
   position: relative;
-  left: clamp(175px, 30vw, 400px);
+  top: 50%;
+  left: 200%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   background-color: var(--blk40);
   border-radius: 50%;
   width: 100px;
@@ -130,31 +102,22 @@
   line-height: 90%;
 }
 
-@media screen and (orientation: landscape) and (pointer: coarse) {
+@media screen and (max-height: 875px) {
   .card {
-    width: 11vw;
+    width: 125px;
+    height: 175px;
   }
 
   .card-value {
-    font-size: 3rem;
+    font-size: 2.8rem;
+    letter-spacing: -2px;
   }
 }
 
 @media screen and (max-width: 900px) {
-  .card-hand {
-    margin-left: -35px;
-  }
-
-  .hand-total {
-    left: -30vw;
-    width: 70px;
-    height: 70px;
-    font-size: 1rem;
-  }
-
-  .card-info {
-    margin-top: 3px;
-    margin-left: 1px;
+  .card {
+    width: 90px;
+    height: 130px;
   }
 
   .card-value {
@@ -162,16 +125,8 @@
     letter-spacing: -2px;
   }
 
-  .card-icon {
+  .card-sm-icon {
     width: 15px;
     height: auto;
-    margin-top: -4px;
-    margin-left: 3px;
-  }
-}
-
-@media screen and (max-height: 550px) {
-  .hand-total {
-    border: 2px solid red;
   }
 }

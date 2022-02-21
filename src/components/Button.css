@@ -17,8 +17,8 @@
 }
 
 .btn-lg {
-  min-width: 190px;
-  height: 85px;
+  min-width: 150px;
+  height: 80px;
   font-size: 3rem;
   padding: 0 15px;
   display: flex;
@@ -39,8 +39,8 @@
   width: 100px;
   border-radius: 50%;
   font-size: 1.4rem;
-  left: -3px;
-  top: 2px;
+  left: 5px;
+  top: 9px;
   z-index: 101;
   animation: pulse 300ms linear 250ms 3 forwards;
   z-index: 30000;
@@ -84,14 +84,18 @@
 
 .game-btns {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60vw;
+  width: 90vw;
   max-width: 791px;
 }
 
-@media screen and (orientation: landscape) and (pointer: coarse) {
+/* @media screen and (orientation: landscape) and (pointer: coarse) {
   .btn-round {
     height: 85px;
     width: 85px;
@@ -99,7 +103,7 @@
     left: 0;
     top: 0;
   }
-}
+} */
 
 @media screen and (max-width: 900px) {
   .btn-lg {
@@ -126,13 +130,9 @@
     left: 0;
     top: 0;
   }
-
-  .game-btns {
-    width: 88vw;
-  }
 }
 
-@media screen and (max-height: 550px) {
+/* @media screen and (max-height: 550px) {
   .btn-lg {
     min-width: 75px;
     max-width: 75px;
@@ -145,4 +145,4 @@
     width: 50px;
     font-size: 0.7rem;
   }
-}
+} */

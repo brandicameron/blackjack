@@ -1,4 +1,6 @@
 import './CardHand.css';
+import cardBackground from '../images/card-icons/card-bg.svg';
+import cardBackSide from '../images/card-icons/card-back.png';
 
 export default function CardHand({
   playerOrDealerHand,
@@ -8,7 +10,7 @@ export default function CardHand({
   dealerFlip,
 }) {
   return (
-    <section className='card-hand flex-center-column'>
+    <section className='card-hand'>
       {shuffledCards.length > 0 &&
         playerOrDealerHand.map((card, index) => (
           <div
@@ -22,12 +24,20 @@ export default function CardHand({
               zIndex: `${index === 0 ? -100 : 0}`,
             }}
           >
-            <div className='card-front'>
-              <img
-                src={require(`../images/card-icons${card.bgUrl}`)}
-                alt=''
-                className='card-bg-img'
-              />
+            <img
+              src={cardBackground}
+              alt=''
+              className='card-bg'
+              width='170'
+              height='242'
+            />
+            <div
+              className='card-front'
+              style={{
+                backgroundImage: `url(
+                  ${require(`../images/card-icons${card.bgUrl}`)}`,
+              }}
+            >
               <div className='card-info flex-center-column'>
                 <p
                   className='card-value bold'
@@ -38,17 +48,21 @@ export default function CardHand({
                 <img
                   src={require(`../images/card-icons${card.iconUrl}`)}
                   alt={card.value}
-                  className='card-icon'
-                  width='248'
-                  height='346'
+                  className='card-sm-icon'
+                  width='25'
+                  height='30'
                 />
               </div>
               {playerOrDealer === 'Dealer' && index === 0 && (
-                <div
+                <img
+                  src={cardBackSide}
+                  alt=''
                   className={
                     dealerFlip === false ? 'card-back' : 'card-back rotate'
                   }
-                ></div>
+                  width='170'
+                  height='242'
+                />
               )}
             </div>
           </div>

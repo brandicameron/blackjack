@@ -1,36 +1,19 @@
-.game-board {
-  position: relative;
-  display: flex;
-  width: 100vw;
-  height: var(--height-minus-header);
-  justify-content: center;
-  align-items: center;
-  margin-top: -7vh;
-}
-
 .card-hands {
-  height: var(--height-minus-header);
-  display: flex;
-  flex-direction: column;
+  margin-top: 20px;
+  height: 80vh;
   justify-content: space-between;
 }
 
-@media screen and (max-width: 900px) {
-  .game-board {
-    margin-top: 0;
-  }
-
+/* @media screen and (max-height: 875px) {
   .card-hands {
-    height: 68vh;
+    margin-top: -10px;
+    height: 85vh;
   }
+} */
 
-  .split-btn {
-    margin-top: 25px;
-  }
-}
-
-@media screen and (max-height: 550px) {
-  .game-board {
-    margin-top: -5vh;
+@media screen and (max-width: 900px) {
+  .card-hands {
+    margin-top: 0;
+    height: 77vh;
   }
 }

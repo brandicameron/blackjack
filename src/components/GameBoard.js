@@ -310,7 +310,7 @@ export default function GameBoard({
   };
 
   return (
-    <section className='game-board'>
+    <section className='game-board flex-center-column'>
       {!handleSplitAces && (
         <div className='game-btns'>
           <Button title='Hit' size='btn-lg' clickHandler={handleHitMe} />
@@ -325,7 +325,7 @@ export default function GameBoard({
         </div>
       )}
 
-      <div className='card-hands'>
+      <div className='card-hands flex-center-column'>
         <CardHand
           playerOrDealerHand={dealerHand}
           playerOrDealer='Dealer'

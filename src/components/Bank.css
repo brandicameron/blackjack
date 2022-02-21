@@ -9,8 +9,8 @@
 .bank-tab {
   background-color: var(--blk40);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
-  padding: 0.75rem 0;
   min-width: 175px;
+  height: 50px;
   width: fit-content;
 }
 
@@ -25,10 +25,10 @@
 
 .chip-btn {
   position: relative;
-  width: 100%;
-  height: 100%;
-  max-width: 115px;
-  max-height: 115px;
+  width: 12vh;
+  height: auto;
+  max-width: 110px;
+  max-height: 110px;
   background-color: transparent;
   border: none;
   padding: 0;
@@ -45,7 +45,7 @@
 }
 
 .lower-bank {
-  transform: translateY(280px);
+  transform: translateY(245px);
 }
 
 @media screen and (orientation: landscape) and (pointer: coarse) {
@@ -59,10 +59,10 @@
     transform: translateY(135px);
   }
 
-  .chip-btn {
+  /* .chip-btn {
     max-width: 100px;
     max-height: 100px;
-  }
+  } */
 }
 
 @media screen and (max-width: 900px) {
@@ -83,10 +83,10 @@
     border-radius: 0 0 0 0;
   }
 
-  .chip-btn {
+  /* .chip-btn {
     max-width: 60px;
     max-height: 60px;
-  }
+  } */
 
   .lower-bank {
     transform: translateY(85px);

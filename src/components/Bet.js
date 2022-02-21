@@ -92,6 +92,11 @@ export default function Bet({
             clickHandler={handleDoubleDown}
           />
         )}
+        {/* <Button
+          title='2x Double Down'
+          size='btn-round'
+          clickHandler={handleDoubleDown}
+        /> */}
         {betChips.map((chip, index) => (
           <button
             className={chip.classes}

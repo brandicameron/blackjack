@@ -22,9 +22,3 @@
     transform: scale(1);
   }
 }
-
-@media screen and (max-width: 900px) {
-  .splash-page-graphic {
-    margin: -20px 0 20px 0;
-  }
-}

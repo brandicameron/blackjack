@@ -1,7 +1,7 @@
 .split-hand-container {
   position: absolute;
   right: 5vw;
-  bottom: 0;
+  bottom: 3vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,14 @@
   height: 100px;
 }
 
-.split-card {
+.split-card .card {
+  width: 70px;
+  height: 100px;
+}
+
+.split-card .card-front,
+.split-card .card-back,
+.split-card .card-bg {
   position: absolute;
   transform: translateY(0);
   animation: deal 100ms ease-in forwards;
@@ -25,7 +32,7 @@
   letter-spacing: -2px;
 }
 
-.split-card .card-icon {
+.split-card .card-sm-icon {
   width: 15px;
   height: 20px;
   margin-top: -3px;
