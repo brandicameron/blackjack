@@ -1,0 +1,31 @@
+.game-btn {
+  background-image: var(--gradient);
+  box-shadow: 3px 5px 15px 0px rgba(2, 2, 2, 0.4);
+  color: inherit;
+  text-transform: uppercase;
+  border-radius: var(--border-radius);
+  border: 2px dotted white;
+  transition: background-position 1s linear;
+}
+
+.game-btn:hover {
+  background-size: 150%;
+  background-position: right center;
+}
+
+.btn-lg {
+  min-width: 150px;
+  height: 85px;
+  font-size: 3rem;
+  padding: 0 20px;
+}
+
+/*  ***************** MEDIA QUERIES *****************  */
+
+@media screen and (max-width: 550px) {
+  .btn-lg {
+    min-width: 95px;
+    height: 70px;
+    font-size: 1.7rem;
+  }
+}

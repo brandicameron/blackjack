@@ -1,0 +1,109 @@
+:root {
+  --gradient: linear-gradient(
+    52deg,
+    #2f45eb 0%,
+    #3a5fee 63%,
+    rgb(77, 154, 255) 100%
+  );
+  --border-radius: 15px;
+  --backer-opacity: 45%;
+  --dotted-border: 2px dotted #fff;
+  --blk40: rgba(0, 0, 0, 0.2);
+  --height-minus-header: calc(100vh - 150px);
+}
+
+body {
+  min-height: 100vh;
+  background-image: url(./images/felt.jpg);
+  background-repeat: repeat;
+  color: #fff;
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/*  ***************** UTILITIES *****************  */
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.red {
+  color: #b70707;
+}
+
+.black {
+  color: #000000;
+}
+
+.med-text {
+  font-size: calc(16px + (36 - 16) * ((100vh - 400px) / (1600 - 400)));
+  line-height: 130%;
+}
+
+.lg-text {
+  font-size: calc(22px + (48 - 22) * ((100vh - 400px) / (1600 - 400)));
+  line-height: 110%;
+}
+
+.xlg-text {
+  font-size: calc(28px + (80 - 28) * ((100vh - 400px) / (1600 - 400)));
+  line-height: 120%;
+}
+
+/*  ***************** MAIN *****************  */
+
+.game-board {
+  height: var(--height-minus-header);
+}
+
+.game-buttons {
+  position: absolute;
+  width: 90vw;
+  max-width: 700px;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+/*  ***************** MEDIA QUERIES *****************  */
+
+@media screen and (orientation: landscape) and (pointer: coarse) {
+  .game-board {
+    padding-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .game-board {
+    padding-bottom: 100px;
+  }
+}

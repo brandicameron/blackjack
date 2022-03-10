@@ -1,0 +1,67 @@
+.bet-container {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  height: 15vh;
+  max-width: 100px;
+  max-height: 130px;
+  margin: 40px 0 20px 0;
+  z-index: 2;
+}
+
+.instructions {
+  width: 70vw;
+  max-width: 250px;
+  text-align: center;
+}
+
+.bet-chips {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5px;
+}
+
+.chip-image {
+  width: 100%;
+  height: 100%;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.chip-button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-animation: bet 150ms ease-out forwards;
+  animation: bet 150ms ease-out forwards;
+}
+
+@keyframes bet {
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.remove-chip {
+  -webkit-animation: remove 150ms ease-out reverse;
+  animation: remove 150ms ease-out reverse;
+}
+
+@keyframes remove {
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .chip-button {
+    -webkit-animation: bet 1ms ease-out forwards;
+    animation: bet 1ms ease-out forwards;
+  }
+  .remove-chip {
+    -webkit-animation: remove 1ms ease-out reverse;
+    animation: remove 1ms ease-out reverse;
+  }
+}

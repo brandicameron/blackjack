@@ -1,0 +1,66 @@
+.splash-page {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/felt.jpg);
+  background-repeat: repeat;
+  z-index: 20;
+}
+
+.title {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/splash-text.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.splash-graphic {
+  z-index: 30;
+  transform: scale(0);
+  opacity: 0;
+  animation: grow 1100ms ease-in-out 200ms forwards;
+}
+
+@keyframes grow {
+  25% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/*  ***************** MEDIA QUERIES *****************  */
+
+@media (prefers-reduced-motion) {
+  .splash-graphic {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .title,
+  .splash-graphic {
+    margin-top: -50px;
+  }
+
+  .title {
+    background-size: 110%;
+    background-repeat: repeat;
+  }
+}

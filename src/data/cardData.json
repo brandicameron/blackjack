@@ -1,0 +1,370 @@
+[
+  {
+    "value": 10,
+    "displayValue": "J",
+    "bgUrl": "/jack.png",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 10,
+    "displayValue": "Q",
+    "bgUrl": "/queen.png",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 10,
+    "displayValue": "K",
+    "bgUrl": "/king.png",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 10,
+    "displayValue": "J",
+    "bgUrl": "/jack.png",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 10,
+    "displayValue": "Q",
+    "bgUrl": "/queen.png",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 10,
+    "displayValue": "K",
+    "bgUrl": "/king.png",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 10,
+    "displayValue": "J",
+    "bgUrl": "/jack.png",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 10,
+    "displayValue": "Q",
+    "bgUrl": "/queen.png",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 10,
+    "displayValue": "K",
+    "bgUrl": "/king.png",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 10,
+    "displayValue": "J",
+    "bgUrl": "/jack.png",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 10,
+    "displayValue": "Q",
+    "bgUrl": "/queen.png",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 10,
+    "displayValue": "K",
+    "bgUrl": "/king.png",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 2,
+    "displayValue": 2,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 3,
+    "displayValue": 3,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 4,
+    "displayValue": 4,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 5,
+    "displayValue": 5,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 6,
+    "displayValue": 6,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 7,
+    "displayValue": 7,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 8,
+    "displayValue": 8,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 9,
+    "displayValue": 9,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 10,
+    "displayValue": 10,
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 11,
+    "displayValue": "A",
+    "bgUrl": "/club.svg",
+    "iconUrl": "/club-icon.svg",
+    "color": "#000000",
+    "type": "ace"
+  },
+  {
+    "value": 2,
+    "displayValue": 2,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 3,
+    "displayValue": 3,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 4,
+    "displayValue": 4,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 5,
+    "displayValue": 5,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 6,
+    "displayValue": 6,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 7,
+    "displayValue": 7,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 8,
+    "displayValue": 8,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 9,
+    "displayValue": 9,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 10,
+    "displayValue": 10,
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 11,
+    "displayValue": "A",
+    "bgUrl": "/diamond.svg",
+    "iconUrl": "/diamond-icon.svg",
+    "color": "#b70707",
+    "type": "ace"
+  },
+  {
+    "value": 2,
+    "displayValue": 2,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 3,
+    "displayValue": 3,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 4,
+    "displayValue": 4,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 5,
+    "displayValue": 5,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 6,
+    "displayValue": 6,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 7,
+    "displayValue": 7,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 8,
+    "displayValue": 8,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 9,
+    "displayValue": 9,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 10,
+    "displayValue": 10,
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707"
+  },
+  {
+    "value": 11,
+    "displayValue": "A",
+    "bgUrl": "/heart.svg",
+    "iconUrl": "/heart-icon.svg",
+    "color": "#b70707",
+    "type": "ace"
+  },
+  {
+    "value": 2,
+    "displayValue": 2,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 3,
+    "displayValue": 3,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 4,
+    "displayValue": 4,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 5,
+    "displayValue": 5,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 6,
+    "displayValue": 6,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 7,
+    "displayValue": 7,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 8,
+    "displayValue": 8,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 9,
+    "displayValue": 9,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 10,
+    "displayValue": 10,
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000"
+  },
+  {
+    "value": 11,
+    "displayValue": "A",
+    "bgUrl": "/spade.svg",
+    "iconUrl": "/spade-icon.svg",
+    "color": "#000000",
+    "type": "ace"
+  }
+]
