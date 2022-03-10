@@ -25,7 +25,7 @@ export function CardHand({
         setPlayerOrDealerTotal(tempTotal);
       }
     }
-  }, [playerOrDealerHand, completeDealerHand]);
+  }, [playerOrDealerHand, completeDealerHand, setPlayerOrDealerTotal]);
 
   // for aria label that reads what the card is
   const findSuit = (card) => {
@@ -38,16 +38,12 @@ export function CardHand({
     switch (card.displayValue) {
       case 'A':
         return 'Ace';
-        break;
       case 'J':
         return 'Jack';
-        break;
       case 'Q':
         return 'Queen';
-        break;
       case 'K':
         return 'King';
-        break;
       default:
         return card.displayValue;
     }

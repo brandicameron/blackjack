@@ -26,6 +26,9 @@
   background-color: var(--blk40);
   border-radius: 0 var(--border-radius) 0 0;
   padding: 1rem;
+  /* min height fixes bug where if bank is empty of chips, tab doesn't show when lowered */
+  min-height: 225px;
+  min-width: 330px;
 }
 
 .chip-bank-button {
@@ -51,6 +54,7 @@
     display: flex;
     padding: 1rem 2rem;
     gap: 10px;
+    min-height: 100px;
   }
 
   .chip-bank-button {
@@ -85,6 +89,7 @@
     padding: 1rem 0.5rem;
     gap: 10px;
     border-radius: 0 0 0 0;
+    min-height: 80px;
   }
 
   .lower-bank {

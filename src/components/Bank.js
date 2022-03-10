@@ -51,6 +51,8 @@ export function Bank({ betTotal, setBet, beginRound, bankTotal }) {
     >
       <div
         className='bank-tab flex'
+        role='heading'
+        aria-level='1'
         aria-label={`Bank Total: ${currentBankTotal} dollars.`}
       >
         <h1 aria-hidden='true' className='bank-total med-text'>

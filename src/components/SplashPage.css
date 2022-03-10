@@ -57,6 +57,8 @@
   .title,
   .splash-graphic {
     margin-top: -50px;
+    max-width: 350px;
+    height: auto;
   }
 
   .title {

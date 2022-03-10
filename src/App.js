@@ -18,7 +18,6 @@ export default function App() {
   const [beginRound, setBeginRound] = useState(false);
   const [bet, setBet] = useState([]);
   const [prevBet, setPrevBet] = useState([]);
-  const { shuffleCards } = useShuffleCards();
   const [shuffledCards, setShuffledCards] = useState([]);
   const [playerHand, setPlayerHand] = useState([]);
   const [dealerHand, setDealerHand] = useState([]);
@@ -30,6 +29,7 @@ export default function App() {
 
   let betTotal = bet.reduce((total, obj) => obj.value + total, 0);
 
+  const { shuffleCards } = useShuffleCards();
   const { dealInitialHand } = useDealInitialHand();
   const { dealNextCard } = useDealNextCard();
 
@@ -40,11 +40,9 @@ export default function App() {
   }
 
   const handleBeginRound = () => {
-    if (bet.length > 0) {
-      setBeginRound(true);
-      setPrevBet(bet);
-      dealInitialHand(shuffledCards, setDealerHand, setPlayerHand);
-    }
+    setBeginRound(true);
+    setPrevBet(bet);
+    dealInitialHand(shuffledCards, setDealerHand, setPlayerHand);
   };
 
   // ********** Handle Hit **********
@@ -73,7 +71,7 @@ export default function App() {
     }
   }, [playerTotal]);
 
-  const dealDealerAndScoreRound = () => {
+  useEffect(() => {
     if (completeDealerHand === true) {
       if (playerTotal === 21 && playerHand.length === 2) {
         scoreTheRound();
@@ -88,13 +86,10 @@ export default function App() {
         scoreTheRound();
       }
     }
-  };
-
-  useEffect(() => {
-    dealDealerAndScoreRound();
-  }, [dealerTotal]);
+  }, [dealerTotal, dealerHand, completeDealerHand]);
 
   const scoreTheRound = () => {
+    console.log('Score the Round Ran');
     const handlePayout = {
       playerWins: (prev) => prev + betTotal,
       dealerWins: (prev) => prev - betTotal,
