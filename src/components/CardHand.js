@@ -56,7 +56,7 @@ export function CardHand({
           className='card'
           key={`${card.value}-${playerOrDealer}-${index}`}
           style={{
-            marginLeft: `${index * (window.innerWidth > 550 ? 7 : 3.5)}vh`,
+            paddingLeft: `${index * 7}vh`,
             top: `${index * 10}px`,
             zIndex: `${index === 0 ? -100 : 0}`,
           }}
