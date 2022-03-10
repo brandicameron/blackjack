@@ -89,7 +89,6 @@ export default function App() {
   }, [dealerTotal, dealerHand, completeDealerHand]);
 
   const scoreTheRound = () => {
-    console.log('Score the Round Ran');
     const handlePayout = {
       playerWins: (prev) => prev + betTotal,
       dealerWins: (prev) => prev - betTotal,
