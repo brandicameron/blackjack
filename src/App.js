@@ -86,7 +86,7 @@ export default function App() {
         scoreTheRound();
       }
     }
-  }, [dealerTotal, dealerHand, completeDealerHand]);
+  }, [dealerTotal, dealerHand]);
 
   const scoreTheRound = () => {
     const handlePayout = {
@@ -134,6 +134,7 @@ export default function App() {
     //this fixes failure to auto flip on natural blackjack after happening more than one time
     setPlayerTotal(0);
     setDealerTotal(0);
+    setWinnerMessage('');
 
     let prevBetAmount = prevBet.reduce((total, obj) => obj.value + total, 0);
 
