@@ -18,12 +18,14 @@
 }
 
 .splash-graphic {
+  display: block;
   z-index: 30;
   transform: scale(0);
   opacity: 0;
   animation: grow 1100ms ease-in-out 200ms forwards;
+  /* fixes wierd firefox bug */
+  backface-visibility: hidden;
 }
-
 @keyframes grow {
   25% {
     transform: scale(1.15);
