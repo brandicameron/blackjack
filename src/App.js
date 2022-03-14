@@ -48,7 +48,7 @@ export default function App() {
   // ********** Handle Hit **********
 
   const handleHit = () => {
-    if (playerTotal <= 21) {
+    if (playerTotal <= 21 && completeDealerHand === false) {
       dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
     }
   };
