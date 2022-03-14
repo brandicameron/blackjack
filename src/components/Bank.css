@@ -92,6 +92,11 @@
     min-height: 80px;
   }
 
+  .chip-bank-button {
+    max-width: 65px;
+    max-height: 65px;
+  }
+
   .lower-bank {
     transform: translateY(60%);
   }
