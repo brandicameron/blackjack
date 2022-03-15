@@ -48,7 +48,7 @@ export default function App() {
   // ********** Handle Hit **********
 
   const handleHit = () => {
-    if (playerTotal <= 21 && completeDealerHand === false) {
+    if (playerTotal < 21 && completeDealerHand === false) {
       dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
     }
   };
@@ -146,6 +146,7 @@ export default function App() {
     }, 500);
   };
 
+  // Handle Splash Page
   useEffect(() => {
     const timer1 = setTimeout(() => {
       setSplashPage(false);
