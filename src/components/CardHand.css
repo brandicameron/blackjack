@@ -11,8 +11,8 @@
   opacity: 0;
   -webkit-transform: translateY(-40vh);
   transform: translateY(-40vh);
-  -webkit-animation: deal 100ms linear forwards;
-  animation: deal 100ms linear forwards;
+  -webkit-animation: deal 125ms linear forwards;
+  animation: deal 115ms linear forwards;
 }
 
 @keyframes deal {
@@ -122,6 +122,10 @@
 }
 
 @media screen and (max-width: 550px) {
+  .card {
+    animation: deal 150ms linear forwards;
+  }
+
   .card-hand,
   .card-face {
     height: 21vh;

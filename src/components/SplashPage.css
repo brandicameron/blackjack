@@ -18,24 +18,23 @@
 }
 
 .splash-graphic {
-  display: block;
   z-index: 30;
   transform: scale(0);
   opacity: 0;
-  animation: grow 1100ms ease-in-out 200ms forwards;
+  animation: grow 1200ms ease-in-out 300ms forwards;
   /* fixes wierd firefox bug */
   backface-visibility: hidden;
 }
 @keyframes grow {
-  25% {
+  20% {
     transform: scale(1.15);
     opacity: 1;
   }
-  40% {
+  30% {
     transform: scale(1);
     opacity: 1;
   }
-  80% {
+  60% {
     transform: scale(1);
     opacity: 1;
   }
@@ -56,7 +55,6 @@
 }
 
 @media screen and (max-width: 550px) {
-  .title,
   .splash-graphic {
     margin-top: -50px;
     max-width: 350px;
