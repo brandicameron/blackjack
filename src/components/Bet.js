@@ -1,15 +1,20 @@
 import './Bet.css';
+import { useStoreState } from 'easy-peasy';
+import { useStoreActions } from 'easy-peasy';
 
-export function Bet({ betTotal, bet, beginRound, setBet }) {
+export function Bet({ beginRound }) {
+  const bet = useStoreState((state) => state.bet);
+  const betTotal = useStoreState((state) => state.betTotal);
+  const addBetClass = useStoreActions((actions) => actions.addBetClass);
+  const removeBet = useStoreActions((actions) => actions.removeBet);
+
   const handleRemoveBet = (e) => {
     if (beginRound === false) {
       const target = e.target.dataset.id;
       const item = bet.find((chip) => target === chip.id);
-
-      setBet((prev) => ((item.classes = 'chip-button remove-chip'), [...prev]));
-
+      addBetClass((item.classes = 'chip-button remove-chip'));
       setTimeout(() => {
-        setBet(bet.filter((item) => target !== item.id));
+        removeBet(bet.filter((item) => target !== item.id));
       }, 200);
     }
   };

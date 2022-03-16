@@ -1,5 +1,5 @@
 import './CardHand.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import cardBack from '../images/card-icons/card-back.png';
 
 export function CardHand({
@@ -7,25 +7,22 @@ export function CardHand({
   playerOrDealerHand,
   playerOrDealerTotal,
   completeDealerHand,
-  setPlayerOrDealerTotal,
 }) {
-  // ********** Set Hand Totals **********
+  const [displayTotal, setDisplayTotal] = useState(0);
 
+  // ********** Set Hand Totals **********
   useEffect(() => {
     if (playerOrDealerHand.length > 0) {
-      let tempTotal = playerOrDealerHand.reduce(
-        (total, obj) => obj.value + total,
-        0
-      );
+      setDisplayTotal(playerOrDealerTotal);
 
       if (completeDealerHand === false) {
         const hiddenValue = playerOrDealerHand[0].value;
-        setPlayerOrDealerTotal(tempTotal - hiddenValue);
+        setDisplayTotal(playerOrDealerTotal - hiddenValue);
       } else {
-        setPlayerOrDealerTotal(tempTotal);
+        setDisplayTotal(playerOrDealerTotal);
       }
     }
-  }, [playerOrDealerHand, completeDealerHand, setPlayerOrDealerTotal]);
+  }, [playerOrDealerHand, completeDealerHand]);
 
   // for aria label that reads what the card is
   const findSuit = (card) => {
@@ -61,9 +58,7 @@ export function CardHand({
             zIndex: `${index === 0 ? -100 : 0}`,
           }}
           aria-hidden={
-            playerOrDealer === 'Dealer' && !completeDealerHand && index === 0
-              ? 'true'
-              : 'false'
+            playerOrDealer === 'Dealer' && !completeDealerHand && index === 0 ? 'true' : 'false'
           }
           aria-label={`${readableValue(card)} of ${findSuit(card)}s`}
         >
@@ -120,7 +115,7 @@ export function CardHand({
       >
         <h3 className='score med-text flex column' aria-hidden='true'>
           {playerOrDealer}
-          <output className='bold lg-text'>{playerOrDealerTotal}</output>
+          <output className='bold lg-text'>{displayTotal}</output>
         </h3>
       </div>
     </section>

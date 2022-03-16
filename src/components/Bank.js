@@ -1,11 +1,17 @@
 import './Bank.css';
 import { useState, useEffect } from 'react';
+import { useStoreState } from 'easy-peasy';
+import { useStoreActions } from 'easy-peasy';
 import { v4 as uuidv4 } from 'uuid';
 import chipData from '../data/chipData.json';
 
-export function Bank({ betTotal, setBet, beginRound, bankTotal }) {
+export function Bank() {
   const [currentBankTotal, setCurrentBankTotal] = useState(0);
   const [chipsInBank, setChipsInBank] = useState([]);
+  const bankTotal = useStoreState((state) => state.bankTotal);
+  const setBet = useStoreActions((actions) => actions.setBet);
+  const betTotal = useStoreState((state) => state.betTotal);
+  const beginRound = useStoreState((state) => state.beginRound);
 
   //remove chip from bank if bank total is less than chip value
   useEffect(() => {
@@ -23,21 +29,18 @@ export function Bank({ betTotal, setBet, beginRound, bankTotal }) {
     let width = window.innerWidth;
     let height = window.innerHeight;
 
-    setBet((prev) => [
-      ...prev,
-      {
-        value: parseInt(e.target.dataset.value),
-        url: `/chip-${e.target.dataset.value}.png`,
-        id: e.target.dataset.id,
-        x: location.x,
-        y: location.y,
-        ww: width,
-        wh: height,
-        w: location.width,
-        h: location.height,
-        classes: 'chip-button',
-      },
-    ]);
+    setBet({
+      value: parseInt(e.target.dataset.value),
+      url: `/chip-${e.target.dataset.value}.png`,
+      id: e.target.dataset.id,
+      x: location.x,
+      y: location.y,
+      ww: width,
+      wh: height,
+      w: location.width,
+      h: location.height,
+      classes: 'chip-button',
+    });
   };
 
   useEffect(() => {

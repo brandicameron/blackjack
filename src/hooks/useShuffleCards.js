@@ -31,10 +31,6 @@ export function useShuffleCards() {
     });
     console.log(`Cards shuffled at ${time}`);
 
-    // cardsToShuffle.forEach((card, index) => {
-    //   card.id = index;
-    // });
-
     return cardsToShuffle;
   };
 
