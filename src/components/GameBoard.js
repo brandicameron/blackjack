@@ -39,8 +39,8 @@ export function GameBoard() {
 
   useEffect(() => {
     if (playerTotal >= 21) {
+      setOfferDoubleDown(false);
       let timer0 = setTimeout(() => {
-        setOfferDoubleDown(false);
         setCompleteDealerHand(true);
       }, 1000);
       return () => {

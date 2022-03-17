@@ -28,7 +28,7 @@
   font-size: 2.5rem;
   padding-bottom: 5px;
   aspect-ratio: 1 / 1;
-  animation: pulse 250ms linear 250ms 2 forwards;
+  animation: pulse 250ms linear 300ms 2 forwards;
 }
 
 @keyframes pulse {
