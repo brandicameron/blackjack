@@ -8,6 +8,8 @@ This is my first official React project, and as usual I seemed to have jumped st
 
 - Blackjack pays 3 to 2
 
+- Doubling down deals one additional card to the player then flips the dealers hole card and scores the round.
+
 PLAY HERE: [https://brandicameron.github.io/blackjack/](https://brandicameron.github.io/blackjack/)
 
 ## Screenshot
@@ -18,7 +20,7 @@ PLAY HERE: [https://brandicameron.github.io/blackjack/](https://brandicameron.gi
 
 ## To Do:
 
-- Add option to double down.
+- ~~Add option to double down.~~
 - Add option to play split hands.
 - Some kind of stats page when game over. (bank runs out)
 - Animation showing when cards are being shuffled.
@@ -32,6 +34,7 @@ PLAY HERE: [https://brandicameron.github.io/blackjack/](https://brandicameron.gi
 ## Things Learned:
 
 - React hooks, components, ect. (the usual stuff when first learning react)
+- State management with [Easy Peasy v5](https://easy-peasy.vercel.app/)
 - It was particularly challenging to figure out the scoring of Aces, especially changing the value of a previously dealt ace if a subsequent card pushed the total over 21.
 - Another super fun challenge was capturing the poker chip locations so that they could be animated to the bet area and back to the correct location in the bank if removed.
 - I enjoyed figuring out how to add aria labels programmatically. (read the value & suit of each card, doesn't read the dealers hole card unless it's been flipped)
