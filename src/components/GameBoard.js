@@ -23,6 +23,8 @@ export function GameBoard() {
   const completeDealerHand = useStoreState((state) => state.completeDealerHand);
   const setCompleteDealerHand = useStoreActions((actions) => actions.setCompleteDealerHand);
   const acesChanged = useStoreState((state) => state.acesChanged);
+  const doubleDown = useStoreState((state) => state.doubleDown);
+  const setOfferDoubleDown = useStoreActions((actions) => actions.setOfferDoubleDown);
   const { dealInitialHand } = useDealInitialHand();
   const { dealNextCard } = useDealNextCard();
   const { dealDealer } = useDealDealer();
@@ -38,6 +40,7 @@ export function GameBoard() {
   useEffect(() => {
     if (playerTotal >= 21) {
       let timer0 = setTimeout(() => {
+        setOfferDoubleDown(false);
         setCompleteDealerHand(true);
       }, 1000);
       return () => {
@@ -47,12 +50,14 @@ export function GameBoard() {
   }, [playerTotal]);
 
   const handleHit = () => {
+    setOfferDoubleDown(false);
     if (playerTotal < 21 && completeDealerHand === false) {
       dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
     }
   };
 
   const handleStay = () => {
+    setOfferDoubleDown(false);
     setCompleteDealerHand(true);
   };
 
@@ -61,6 +66,23 @@ export function GameBoard() {
       dealDealer();
     }
   }, [dealerTotal, acesChanged, completeDealerHand]);
+
+  useEffect(() => {
+    if (doubleDown === true) {
+      let timer1 = setTimeout(() => {
+        dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
+      }, 500);
+
+      let timer2 = setTimeout(() => {
+        handleStay();
+      }, 1500);
+
+      return () => {
+        clearTimeout(timer1);
+        clearTimeout(timer2);
+      };
+    }
+  }, [doubleDown]);
 
   return (
     <main>
@@ -73,7 +95,7 @@ export function GameBoard() {
             completeDealerHand={completeDealerHand}
           />
         )}
-        <Bet beginRound={beginRound} />
+        <Bet />
         {beginRound && (
           <CardHand
             playerOrDealer='Player'

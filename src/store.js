@@ -28,6 +28,9 @@ export const store = createStore({
   setBet: action((state, payload) => {
     state.bet.push(payload);
   }),
+  doubleBet: action((state, payload) => {
+    state.bet = payload;
+  }),
   addBetClass: action((state, payload) => {
     state.bet = [...state.bet];
   }),
@@ -54,5 +57,13 @@ export const store = createStore({
   acesChanged: [],
   setAcesChanged: action((state, payload) => {
     state.acesChanged.push(payload);
+  }),
+  offerDoubleDown: true,
+  setOfferDoubleDown: action((state, payload) => {
+    state.offerDoubleDown = payload;
+  }),
+  doubleDown: false,
+  setDoubleDown: action((state, payload) => {
+    state.doubleDown = payload;
   }),
 });

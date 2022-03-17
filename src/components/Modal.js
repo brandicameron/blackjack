@@ -12,6 +12,8 @@ export function Modal() {
   const setEndRound = useStoreActions((actions) => actions.setEndRound);
   const setCompleteDealerHand = useStoreActions((actions) => actions.setCompleteDealerHand);
   const winnerMessage = useStoreState((state) => state.winnerMessage);
+  const setOfferDoubleDown = useStoreActions((actions) => actions.setOfferDoubleDown);
+  const setDoubleDown = useStoreActions((actions) => actions.setDoubleDown);
 
   const handlePlayAgain = () => {
     setEndRound(false);
@@ -19,6 +21,8 @@ export function Modal() {
     setCompleteDealerHand(false);
     //fixes failure to auto flip on natural blackjack after happening more than one time
     setPlayerHand([]);
+    setOfferDoubleDown(true);
+    setDoubleDown(false);
 
     let prevBetAmount = prevBet.reduce((total, obj) => obj.value + total, 0);
 
