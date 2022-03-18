@@ -3,14 +3,11 @@ import { useStoreState } from 'easy-peasy';
 import { useStoreActions } from 'easy-peasy';
 import { GameButton } from './GameButton';
 
-export function Bet() {
+export function Bet({ handleDoubleDown }) {
   const beginRound = useStoreState((state) => state.beginRound);
   const bet = useStoreState((state) => state.bet);
   const betTotal = useStoreState((state) => state.betTotal);
-  const setDoubleDown = useStoreActions((actions) => actions.setDoubleDown);
   const offerDoubleDown = useStoreState((state) => state.offerDoubleDown);
-  const setOfferDoubleDown = useStoreActions((actions) => actions.setOfferDoubleDown);
-  const doubleBet = useStoreActions((actions) => actions.doubleBet);
   const addBetClass = useStoreActions((actions) => actions.addBetClass);
   const removeBet = useStoreActions((actions) => actions.removeBet);
 
@@ -23,12 +20,6 @@ export function Bet() {
         removeBet(bet.filter((item) => target !== item.id));
       }, 200);
     }
-  };
-
-  const handleDoubleDown = () => {
-    doubleBet([...bet, ...bet]);
-    setDoubleDown(true);
-    setOfferDoubleDown(false);
   };
 
   return (

@@ -37,6 +37,9 @@ export const store = createStore({
   removeBet: action((state, payload) => {
     state.bet = payload;
   }),
+  repopulatePrevBet: action((state, payload) => {
+    state.bet = payload;
+  }),
   prevBet: [],
   setPrevBet: action((state, payload) => {
     state.prevBet = payload;
@@ -61,10 +64,6 @@ export const store = createStore({
   offerDoubleDown: true,
   setOfferDoubleDown: action((state, payload) => {
     state.offerDoubleDown = payload;
-  }),
-  doubleDown: false,
-  setDoubleDown: action((state, payload) => {
-    state.doubleDown = payload;
   }),
   offerSplitHand: false,
   setOfferSplitHand: action((state, payload) => {

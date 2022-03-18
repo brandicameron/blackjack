@@ -14,6 +14,7 @@ export function GameBoard() {
   const beginRound = useStoreState((state) => state.beginRound);
   const setBeginRound = useStoreActions((actions) => actions.setBeginRound);
   const bet = useStoreState((state) => state.bet);
+  const doubleBet = useStoreActions((actions) => actions.doubleBet);
   const setPrevBet = useStoreActions((actions) => actions.setPrevBet);
   const dealerHand = useStoreState((state) => state.dealerHand);
   const setDealerHand = useStoreActions((actions) => actions.setDealerHand);
@@ -24,7 +25,6 @@ export function GameBoard() {
   const completeDealerHand = useStoreState((state) => state.completeDealerHand);
   const setCompleteDealerHand = useStoreActions((actions) => actions.setCompleteDealerHand);
   const acesChanged = useStoreState((state) => state.acesChanged);
-  const doubleDown = useStoreState((state) => state.doubleDown);
   const setOfferDoubleDown = useStoreActions((actions) => actions.setOfferDoubleDown);
   const offerSplitHand = useStoreState((state) => state.offerSplitHand);
   const setOfferSplitHand = useStoreActions((actions) => actions.setOfferSplitHand);
@@ -38,8 +38,7 @@ export function GameBoard() {
     dealInitialHand(shuffledCards, setDealerHand, setPlayerHand);
   };
 
-  // ********** Check if player hits 21 or busts with every hit **********
-
+  // Check if player hits 21 or busts with every hit
   useEffect(() => {
     if (playerTotal >= 21) {
       setOfferDoubleDown(false);
@@ -66,10 +65,36 @@ export function GameBoard() {
     setCompleteDealerHand(true);
   };
 
+  const handleDoubleDown = () => {
+    doubleBet([...bet, ...bet]);
+    setOfferDoubleDown(false);
+
+    setTimeout(() => {
+      dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
+    }, 500);
+
+    setTimeout(() => {
+      handleStay();
+    }, 1500);
+  };
+
+  const handleSplitHand = () => {
+    console.log('Split the hand!');
+  };
+
+  // ********** Complete Dealers Hand **********
+
+  useEffect(() => {
+    if (completeDealerHand === true) {
+      dealDealer();
+    }
+  }, [dealerTotal, acesChanged, completeDealerHand]);
+
   // ********** Handle Game Key Presses **********
 
   const arrowLeftPressed = useKeyPress('ArrowLeft');
   const arrowRightPressed = useKeyPress('ArrowRight');
+  const arrowDownPressed = useKeyPress('ArrowDown');
 
   useEffect(() => {
     if (arrowLeftPressed) {
@@ -84,31 +109,10 @@ export function GameBoard() {
   }, [arrowRightPressed]);
 
   useEffect(() => {
-    if (completeDealerHand === true) {
-      dealDealer();
+    if (arrowDownPressed) {
+      handleDoubleDown();
     }
-  }, [dealerTotal, acesChanged, completeDealerHand]);
-
-  useEffect(() => {
-    if (doubleDown === true) {
-      let timer1 = setTimeout(() => {
-        dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
-      }, 500);
-
-      let timer2 = setTimeout(() => {
-        handleStay();
-      }, 1500);
-
-      return () => {
-        clearTimeout(timer1);
-        clearTimeout(timer2);
-      };
-    }
-  }, [doubleDown]);
-
-  const handleSplitHand = () => {
-    console.log('Split the hand!');
-  };
+  }, [arrowDownPressed]);
 
   return (
     <main>
@@ -121,7 +125,7 @@ export function GameBoard() {
             completeDealerHand={completeDealerHand}
           />
         )}
-        <Bet />
+        <Bet handleDoubleDown={handleDoubleDown} />
         {beginRound && (
           <CardHand
             playerOrDealer='Player'
