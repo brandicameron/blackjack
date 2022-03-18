@@ -15,7 +15,7 @@
 
 .btn-lg {
   min-width: 150px;
-  height: 85px;
+  height: 80px;
   font-size: 3rem;
   padding: 0 20px;
 }
@@ -43,6 +43,24 @@
   }
 }
 
+.split-btn {
+  position: absolute;
+  top: -95px;
+  animation: pulse-light 200ms linear 250ms 2 forwards;
+}
+
+@keyframes pulse-light {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /*  ***************** MEDIA QUERIES *****************  */
 
 @media screen and (pointer: coarse) {
@@ -61,13 +79,20 @@
 @media screen and (max-width: 550px) {
   .btn-lg {
     min-width: 95px;
-    height: 70px;
+    height: 65px;
     font-size: 1.7rem;
+    padding: 0;
   }
 
   .round {
     width: 60px;
     height: 60px;
     min-width: auto;
+  }
+
+  .split-btn {
+    position: absolute;
+    top: -75px;
+    animation: pulse-light 200ms linear 250ms 2 forwards;
   }
 }

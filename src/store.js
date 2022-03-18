@@ -66,4 +66,8 @@ export const store = createStore({
   setDoubleDown: action((state, payload) => {
     state.doubleDown = payload;
   }),
+  offerSplitHand: false,
+  setOfferSplitHand: action((state, payload) => {
+    state.offerSplitHand = payload;
+  }),
 });

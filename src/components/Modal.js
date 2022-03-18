@@ -14,6 +14,7 @@ export function Modal() {
   const winnerMessage = useStoreState((state) => state.winnerMessage);
   const setOfferDoubleDown = useStoreActions((actions) => actions.setOfferDoubleDown);
   const setDoubleDown = useStoreActions((actions) => actions.setDoubleDown);
+  // const setOfferSplitHand = useStoreActions((actions) => actions.setOfferSplitHand);
 
   const handlePlayAgain = () => {
     setEndRound(false);
@@ -23,6 +24,7 @@ export function Modal() {
     setPlayerHand([]);
     setOfferDoubleDown(true);
     setDoubleDown(false);
+    // setOfferSplitHand(false); //do you really need this after adding it to hit & stay?
 
     let prevBetAmount = prevBet.reduce((total, obj) => obj.value + total, 0);
 

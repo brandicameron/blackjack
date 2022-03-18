@@ -70,6 +70,7 @@ export function Bank() {
             key={uuidv4()}
             onClick={handleBet}
             aria-label={`$${chip.value} Poker Chip`}
+            tabIndex={beginRound ? '-1' : '0'}
           >
             <img
               src={require(`../images${chip.url}`)}

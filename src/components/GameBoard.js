@@ -4,6 +4,7 @@ import { useStoreActions } from 'easy-peasy';
 import { useDealInitialHand } from '../hooks/useDealInitialHand';
 import { useDealNextCard } from '../hooks/useDealNextCard';
 import { useDealDealer } from '../hooks/useDealDealer';
+import { useKeyPress } from '../hooks/useKeyPress';
 import { Bet } from './Bet';
 import { CardHand } from './CardHand';
 import { GameButton } from './GameButton';
@@ -25,6 +26,8 @@ export function GameBoard() {
   const acesChanged = useStoreState((state) => state.acesChanged);
   const doubleDown = useStoreState((state) => state.doubleDown);
   const setOfferDoubleDown = useStoreActions((actions) => actions.setOfferDoubleDown);
+  const offerSplitHand = useStoreState((state) => state.offerSplitHand);
+  const setOfferSplitHand = useStoreActions((actions) => actions.setOfferSplitHand);
   const { dealInitialHand } = useDealInitialHand();
   const { dealNextCard } = useDealNextCard();
   const { dealDealer } = useDealDealer();
@@ -51,6 +54,7 @@ export function GameBoard() {
 
   const handleHit = () => {
     setOfferDoubleDown(false);
+    setOfferSplitHand(false);
     if (playerTotal < 21 && completeDealerHand === false) {
       dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
     }
@@ -58,8 +62,26 @@ export function GameBoard() {
 
   const handleStay = () => {
     setOfferDoubleDown(false);
+    setOfferSplitHand(false);
     setCompleteDealerHand(true);
   };
+
+  // ********** Handle Game Key Presses **********
+
+  const arrowLeftPressed = useKeyPress('ArrowLeft');
+  const arrowRightPressed = useKeyPress('ArrowRight');
+
+  useEffect(() => {
+    if (arrowLeftPressed) {
+      handleHit();
+    }
+  }, [arrowLeftPressed]);
+
+  useEffect(() => {
+    if (arrowRightPressed) {
+      handleStay();
+    }
+  }, [arrowRightPressed]);
 
   useEffect(() => {
     if (completeDealerHand === true) {
@@ -84,6 +106,10 @@ export function GameBoard() {
     }
   }, [doubleDown]);
 
+  const handleSplitHand = () => {
+    console.log('Split the hand!');
+  };
+
   return (
     <main>
       <section className='game-board flex column'>
@@ -105,13 +131,18 @@ export function GameBoard() {
         )}
         {!beginRound && bet.length > 0 && (
           <div className='game-buttons flex flex-end'>
-            <GameButton title='DEAL' clickHandler={handleBeginRound} />
+            <GameButton title='DEAL' clickHandler={handleBeginRound} autoFocus='autoFocus' />
           </div>
         )}
         {beginRound && (
           <div className='game-buttons flex'>
             <GameButton title='HIT' clickHandler={handleHit} />
-            <GameButton title='STAY' clickHandler={handleStay} />
+            <div>
+              {offerSplitHand && (
+                <GameButton title='SPLIT' clickHandler={handleSplitHand} addedClass={'split-btn'} />
+              )}
+              <GameButton title='STAY' clickHandler={handleStay} />
+            </div>
           </div>
         )}
       </section>
