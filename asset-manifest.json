@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/blackjack/static/css/main.cdeabe40.css",
-    "main.js": "/blackjack/static/js/main.96b2f90f.js",
+    "main.css": "/blackjack/static/css/main.87da7368.css",
+    "main.js": "/blackjack/static/js/main.cc6a5c4e.js",
     "static/media/splash-graphic.png": "/blackjack/static/media/splash-graphic.0785783b903e3a3d1473.png",
     "static/media/card-back.png": "/blackjack/static/media/card-back.f1ed3e2bc041ecff4571.png",
     "static/media/splash-graphic-m.png": "/blackjack/static/media/splash-graphic-m.cecb9e85238eee563fdc.png",
@@ -17,11 +17,11 @@
     "static/media/spade-icon.svg": "/blackjack/static/media/spade-icon.50625b47ca728ef293c8.svg",
     "static/media/diamond-icon.svg": "/blackjack/static/media/diamond-icon.a2928826673a84a859b2.svg",
     "static/media/heart-icon.svg": "/blackjack/static/media/heart-icon.afe31e5bc2b2b5f80f1f.svg",
-    "main.cdeabe40.css.map": "/blackjack/static/css/main.cdeabe40.css.map",
-    "main.96b2f90f.js.map": "/blackjack/static/js/main.96b2f90f.js.map"
+    "main.87da7368.css.map": "/blackjack/static/css/main.87da7368.css.map",
+    "main.cc6a5c4e.js.map": "/blackjack/static/js/main.cc6a5c4e.js.map"
   },
   "entrypoints": [
-    "static/css/main.cdeabe40.css",
-    "static/js/main.96b2f90f.js"
+    "static/css/main.87da7368.css",
+    "static/js/main.cc6a5c4e.js"
   ]
 }
