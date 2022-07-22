@@ -150,3 +150,16 @@
     min-height: 80px;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .card-hand {
+    transform: scale(0.9);
+    margin-top: -0.5rem;
+  }
+
+  .score {
+    transform: scale(1.1);
+    margin-left: -0.5rem;
+    margin-top: 2rem;
+  }
+}

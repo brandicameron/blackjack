@@ -81,7 +81,7 @@
     min-width: 95px;
     height: 65px;
     font-size: 1.7rem;
-    padding: 0;
+    padding: 1rem;
   }
 
   .round {
@@ -94,5 +94,19 @@
     position: absolute;
     top: -75px;
     animation: pulse-light 200ms linear 250ms 2 forwards;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .btn-lg {
+    min-width: 85px;
+    height: 55px;
+  }
+
+  .round {
+    width: 45px;
+    height: 45px;
+    min-width: auto;
+    font-size: 1.5rem;
   }
 }

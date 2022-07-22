@@ -65,3 +65,10 @@
     animation: remove 1ms ease-out reverse;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .bet-container {
+    transform: scale(0.9);
+    margin: 65px 0 20px 0;
+  }
+}

@@ -10,7 +10,6 @@ import { CardHand } from './CardHand';
 import { GameButton } from './GameButton';
 
 export function GameBoard() {
-  const shuffledCards = useStoreState((state) => state.shuffledCards);
   const beginRound = useStoreState((state) => state.beginRound);
   const setBeginRound = useStoreActions((actions) => actions.setBeginRound);
   const bet = useStoreState((state) => state.bet);
@@ -35,7 +34,7 @@ export function GameBoard() {
   const handleBeginRound = () => {
     setBeginRound(true);
     setPrevBet(bet);
-    dealInitialHand(shuffledCards, setDealerHand, setPlayerHand);
+    dealInitialHand(setDealerHand, setPlayerHand);
   };
 
   // Check if player hits 21 or busts with every hit
@@ -49,13 +48,14 @@ export function GameBoard() {
         clearTimeout(timer0);
       };
     }
+    // eslint-disable-next-line
   }, [playerTotal]);
 
   const handleHit = () => {
     setOfferDoubleDown(false);
     setOfferSplitHand(false);
     if (playerTotal < 21 && completeDealerHand === false) {
-      dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
+      dealNextCard(playerHand, playerTotal, setPlayerHand);
     }
   };
 
@@ -70,7 +70,7 @@ export function GameBoard() {
     setOfferDoubleDown(false);
 
     setTimeout(() => {
-      dealNextCard(shuffledCards, playerHand, playerTotal, setPlayerHand);
+      dealNextCard(playerHand, playerTotal, setPlayerHand);
     }, 500);
 
     setTimeout(() => {
@@ -88,6 +88,7 @@ export function GameBoard() {
     if (completeDealerHand === true) {
       dealDealer();
     }
+    // eslint-disable-next-line
   }, [dealerTotal, acesChanged, completeDealerHand]);
 
   // ********** Handle Game Key Presses **********
@@ -99,20 +100,13 @@ export function GameBoard() {
   useEffect(() => {
     if (arrowLeftPressed) {
       handleHit();
-    }
-  }, [arrowLeftPressed]);
-
-  useEffect(() => {
-    if (arrowRightPressed) {
+    } else if (arrowRightPressed) {
       handleStay();
-    }
-  }, [arrowRightPressed]);
-
-  useEffect(() => {
-    if (arrowDownPressed) {
+    } else if (arrowDownPressed) {
       handleDoubleDown();
     }
-  }, [arrowDownPressed]);
+    // eslint-disable-next-line
+  }, [arrowLeftPressed, arrowRightPressed, arrowDownPressed]);
 
   return (
     <main>

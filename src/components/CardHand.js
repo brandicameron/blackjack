@@ -22,6 +22,7 @@ export function CardHand({
         setDisplayTotal(playerOrDealerTotal);
       }
     }
+    // eslint-disable-next-line
   }, [playerOrDealerHand, completeDealerHand]);
 
   // for aria label that reads what the card is

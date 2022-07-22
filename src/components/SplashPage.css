@@ -66,3 +66,11 @@
     background-repeat: repeat;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .splash-graphic {
+    margin-top: -50px;
+    max-width: 275px;
+    height: auto;
+  }
+}

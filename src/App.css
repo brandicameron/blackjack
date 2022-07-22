@@ -1,10 +1,5 @@
 :root {
-  --gradient: linear-gradient(
-    52deg,
-    #2f45eb 0%,
-    #3a5fee 63%,
-    rgb(77, 154, 255) 100%
-  );
+  --gradient: linear-gradient(52deg, #2f45eb 0%, #3a5fee 63%, rgb(77, 154, 255) 100%);
   --border-radius: 15px;
   --backer-opacity: 45%;
   --dotted-border: 2px dotted #fff;
@@ -62,17 +57,17 @@ button {
 }
 
 .med-text {
-  font-size: calc(16px + (36 - 16) * ((100vh - 400px) / (1600 - 400)));
+  font-size: calc(16px + (36 - 16) * ((100vh - 400px) / (1600 - 350)));
   line-height: 130%;
 }
 
 .lg-text {
-  font-size: calc(22px + (48 - 22) * ((100vh - 400px) / (1600 - 400)));
+  font-size: calc(22px + (48 - 22) * ((100vh - 400px) / (1600 - 350)));
   line-height: 110%;
 }
 
 .xlg-text {
-  font-size: calc(28px + (80 - 28) * ((100vh - 400px) / (1600 - 400)));
+  font-size: calc(28px + (80 - 28) * ((100vh - 400px) / (1600 - 350)));
   line-height: 120%;
 }
 
@@ -105,5 +100,15 @@ button {
 @media screen and (max-width: 550px) {
   .game-board {
     padding-bottom: 100px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .game-buttons {
+    margin-top: 2rem;
+  }
+
+  .lg-text {
+    font-size: calc(18px + (48 - 18) * ((100vh - 400px) / (1600 - 350)));
+    line-height: 110%;
   }
 }

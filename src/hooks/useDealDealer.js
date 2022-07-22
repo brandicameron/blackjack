@@ -7,7 +7,6 @@ export function useDealDealer() {
   const { scoreTheRound } = useScoreRound();
   const { dealNextCard } = useDealNextCard();
 
-  const shuffledCards = useStoreState((state) => state.shuffledCards);
   const dealerHand = useStoreState((state) => state.dealerHand);
   const setDealerHand = useStoreActions((actions) => actions.setDealerHand);
   const dealerTotal = useStoreState((state) => state.dealerTotal);
@@ -19,7 +18,7 @@ export function useDealDealer() {
       scoreTheRound();
     } else if (dealerTotal < 17 && playerTotal <= 21) {
       let timer = setTimeout(() => {
-        dealNextCard(shuffledCards, dealerHand, dealerTotal, setDealerHand);
+        dealNextCard(dealerHand, dealerTotal, setDealerHand);
       }, 1200);
       return () => {
         clearTimeout(timer);

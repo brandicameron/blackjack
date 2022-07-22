@@ -16,7 +16,7 @@ export function Bank() {
   //remove chip from bank if bank total is less than chip value
   useEffect(() => {
     const tempArray = [];
-    chipData.map((chip) => {
+    chipData.forEach((chip) => {
       if (currentBankTotal >= chip.value) {
         tempArray.push(chip);
       }
