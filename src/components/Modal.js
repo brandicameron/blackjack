@@ -1,4 +1,5 @@
 import './Modal.css';
+import { useState } from 'react';
 import { useStoreState } from 'easy-peasy';
 import { useStoreActions } from 'easy-peasy';
 import { GameButton } from './GameButton';

@@ -13,6 +13,8 @@ export function GameBoard() {
   const beginRound = useStoreState((state) => state.beginRound);
   const setBeginRound = useStoreActions((actions) => actions.setBeginRound);
   const bet = useStoreState((state) => state.bet);
+  const betTotal = useStoreState((state) => state.betTotal);
+  const currentBankTotal = useStoreState((state) => state.currentBankTotal);
   const doubleBet = useStoreActions((actions) => actions.doubleBet);
   const setPrevBet = useStoreActions((actions) => actions.setPrevBet);
   const dealerHand = useStoreState((state) => state.dealerHand);
@@ -30,6 +32,19 @@ export function GameBoard() {
   const { dealInitialHand } = useDealInitialHand();
   const { dealNextCard } = useDealNextCard();
   const { dealDealer } = useDealDealer();
+
+  useEffect(() => {
+    // Prevents user from being able to double down if the bank can't cover doubling the bet (therefore throwing the bank into the red)
+
+    if (betTotal * 2 > currentBankTotal) {
+      setOfferDoubleDown(false);
+    }
+
+    if (betTotal <= currentBankTotal && playerHand.length === 0) {
+      setOfferDoubleDown(true);
+    }
+    // eslint-disable-next-line
+  }, [betTotal, currentBankTotal]);
 
   const handleBeginRound = () => {
     setBeginRound(true);
@@ -78,6 +93,7 @@ export function GameBoard() {
     }, 1500);
   };
 
+  // TO DO
   const handleSplitHand = () => {
     console.log('Split the hand!');
   };

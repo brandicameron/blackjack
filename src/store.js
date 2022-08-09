@@ -49,6 +49,7 @@ export const store = createStore({
     state.bankTotal = payload;
   }),
   betTotal: computed((state) => state.bet.reduce((total, obj) => obj.value + total, 0)),
+  currentBankTotal: computed((state) => state.bankTotal - state.betTotal),
   winnerMessage: 0,
   setWinnerMessage: action((state, payload) => {
     state.winnerMessage = payload;

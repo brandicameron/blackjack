@@ -6,11 +6,9 @@ import { v4 as uuidv4 } from 'uuid';
 import chipData from '../data/chipData.json';
 
 export function Bank() {
-  const [currentBankTotal, setCurrentBankTotal] = useState(0);
   const [chipsInBank, setChipsInBank] = useState([]);
-  const bankTotal = useStoreState((state) => state.bankTotal);
+  const currentBankTotal = useStoreState((state) => state.currentBankTotal);
   const setBet = useStoreActions((actions) => actions.setBet);
-  const betTotal = useStoreState((state) => state.betTotal);
   const beginRound = useStoreState((state) => state.beginRound);
 
   //remove chip from bank if bank total is less than chip value
@@ -42,10 +40,6 @@ export function Bank() {
       classes: 'chip-button',
     });
   };
-
-  useEffect(() => {
-    setCurrentBankTotal(bankTotal - betTotal);
-  }, [bankTotal, betTotal]);
 
   return (
     <aside
