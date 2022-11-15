@@ -37,6 +37,7 @@
   max-width: 90px;
   max-height: 90px;
   padding: 0;
+  border-radius: 50%;
 }
 
 .chip-bank-button:focus {

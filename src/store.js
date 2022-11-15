@@ -70,4 +70,8 @@ export const store = createStore({
   setOfferSplitHand: action((state, payload) => {
     state.offerSplitHand = payload;
   }),
+  soundMuted: false,
+  setSoundMuted: action((state, payload) => {
+    state.soundMuted = payload;
+  }),
 });

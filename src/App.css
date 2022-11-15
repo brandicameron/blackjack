@@ -32,6 +32,11 @@ button {
   cursor: pointer;
 }
 
+button:focus-visible {
+  outline: 5px solid yellow;
+  outline-offset: 3px;
+}
+
 /*  ***************** UTILITIES *****************  */
 
 .flex {
