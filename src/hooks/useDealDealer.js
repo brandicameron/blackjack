@@ -9,7 +9,7 @@ export function useDealDealer() {
   const { scoreTheRound } = useScoreRound();
   const { dealNextCard } = useDealNextCard();
 
-  const muteSound = useStoreState((state) => state.muteSound);
+  const soundMuted = useStoreState((state) => state.soundMuted);
   const dealerHand = useStoreState((state) => state.dealerHand);
   const setDealerHand = useStoreActions((actions) => actions.setDealerHand);
   const dealerTotal = useStoreState((state) => state.dealerTotal);
@@ -20,7 +20,7 @@ export function useDealDealer() {
     playbackRate: 1.5,
     volume: 0.5,
     interrupt: true,
-    soundEnabled: muteSound ? false : true,
+    soundEnabled: soundMuted ? false : true,
   });
 
   const dealDealer = () => {
