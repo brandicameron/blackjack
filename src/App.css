@@ -32,7 +32,7 @@ button {
   cursor: pointer;
 }
 
-button:focus-within {
+button:focus-visible {
   outline: 5px solid yellow;
   outline-offset: 3px;
 }
