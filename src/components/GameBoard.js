@@ -8,8 +8,11 @@ import { useKeyPress } from '../hooks/useKeyPress';
 import { Bet } from './Bet';
 import { CardHand } from './CardHand';
 import { GameButton } from './GameButton';
+import useSound from 'use-sound';
+import CardSound from '../sounds/card.mp3';
 
 export function GameBoard() {
+  const soundMuted = useStoreState((state) => state.soundMuted);
   const beginRound = useStoreState((state) => state.beginRound);
   const setBeginRound = useStoreActions((actions) => actions.setBeginRound);
   const bet = useStoreState((state) => state.bet);
@@ -33,6 +36,13 @@ export function GameBoard() {
   const { dealNextCard } = useDealNextCard();
   const { dealDealer } = useDealDealer();
 
+  const [playCardSound] = useSound(CardSound, {
+    playbackRate: 1.25,
+    volume: 0.4,
+    interrupt: true,
+    soundEnabled: soundMuted ? false : true,
+  });
+
   useEffect(() => {
     // Prevents user from being able to double down if the bank can't cover doubling the bet (therefore throwing the bank into the red)
 
@@ -50,6 +60,9 @@ export function GameBoard() {
     setBeginRound(true);
     setPrevBet(bet);
     dealInitialHand(setDealerHand, setPlayerHand);
+    setTimeout(() => {
+      playCardSound();
+    }, 50);
   };
 
   // Check if player hits 21 or busts with every hit
@@ -71,6 +84,9 @@ export function GameBoard() {
     setOfferSplitHand(false);
     if (playerTotal < 21 && completeDealerHand === false) {
       dealNextCard(playerHand, playerTotal, setPlayerHand);
+      setTimeout(() => {
+        playCardSound();
+      }, 50);
     }
   };
 
@@ -86,6 +102,9 @@ export function GameBoard() {
 
     setTimeout(() => {
       dealNextCard(playerHand, playerTotal, setPlayerHand);
+      setTimeout(() => {
+        playCardSound();
+      }, 50);
     }, 500);
 
     setTimeout(() => {

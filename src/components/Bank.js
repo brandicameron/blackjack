@@ -3,13 +3,23 @@ import { useState, useEffect } from 'react';
 import { useStoreState } from 'easy-peasy';
 import { useStoreActions } from 'easy-peasy';
 import { v4 as uuidv4 } from 'uuid';
+import useSound from 'use-sound';
+import ChipSound from '../sounds/chip.mp3';
 import chipData from '../data/chipData.json';
 
 export function Bank() {
   const [chipsInBank, setChipsInBank] = useState([]);
+  const soundMuted = useStoreState((state) => state.soundMuted);
   const currentBankTotal = useStoreState((state) => state.currentBankTotal);
+  const bet = useStoreState((state) => state.bet);
   const setBet = useStoreActions((actions) => actions.setBet);
   const beginRound = useStoreState((state) => state.beginRound);
+
+  const [playChipSound] = useSound(ChipSound, {
+    volume: 0.03,
+    interrupt: true,
+    soundEnabled: soundMuted ? false : true,
+  });
 
   //remove chip from bank if bank total is less than chip value
   useEffect(() => {
@@ -39,6 +49,12 @@ export function Bank() {
       h: location.height,
       classes: 'chip-button',
     });
+
+    if (bet.length >= 1) {
+      setTimeout(() => {
+        playChipSound();
+      }, 175);
+    }
   };
 
   return (
@@ -46,12 +62,7 @@ export function Bank() {
       className={beginRound ? 'bank lower-bank' : 'bank'}
       aria-hidden={beginRound ? 'true' : 'false'}
     >
-      <div
-        className='bank-tab flex'
-        role='heading'
-        aria-level='1'
-        aria-label={`Bank Total: ${currentBankTotal} dollars.`}
-      >
+      <div className='bank-tab flex' aria-label={`Bank Total: ${currentBankTotal} dollars.`}>
         <h1 aria-hidden='true' className='bank-total med-text'>
           Bank: <span className='bold'>${currentBankTotal}</span>
         </h1>
