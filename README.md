@@ -26,7 +26,7 @@ PLAY HERE: [https://brandicameron.github.io/blackjack/](https://brandicameron.gi
 - Animation showing when cards are being shuffled.
 - Create an input where player can change the number of decks being used.
 - Add state to local storage.
-- Sound effects? Maybe not.
+- ~~Sound effects? Maybe not.~~
 - Change currency symbol for different regions?
 
 ---
