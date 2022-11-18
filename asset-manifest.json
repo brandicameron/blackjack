@@ -1,27 +1,33 @@
 {
   "files": {
-    "main.css": "/blackjack/static/css/main.87da7368.css",
-    "main.js": "/blackjack/static/js/main.7f84eb3f.js",
+    "main.css": "/blackjack/static/css/main.d6187aa9.css",
+    "main.js": "/blackjack/static/js/main.aae47dbd.js",
+    "static/js/845.1db802c9.chunk.js": "/blackjack/static/js/845.1db802c9.chunk.js",
     "static/media/splash-graphic.png": "/blackjack/static/media/splash-graphic.0785783b903e3a3d1473.png",
     "static/media/card-back.png": "/blackjack/static/media/card-back.f1ed3e2bc041ecff4571.png",
     "static/media/splash-graphic-m.png": "/blackjack/static/media/splash-graphic-m.cecb9e85238eee563fdc.png",
+    "static/media/card.mp3": "/blackjack/static/media/card.8a90e92d5f68330eaebf.mp3",
     "static/media/cards-icon.svg": "/blackjack/static/media/cards-icon.a8d8bda5d38d63ea75959cede93759de.svg",
+    "static/media/chip.mp3": "/blackjack/static/media/chip.348cff11436cdaeb13a9.mp3",
     "static/media/splash-text.svg": "/blackjack/static/media/splash-text.cd97180f8667591a497c.svg",
     "index.html": "/blackjack/index.html",
-    "static/media/question.svg": "/blackjack/static/media/question.8c136d0932e9e830e2ae14759612a508.svg",
+    "static/media/question.svg": "/blackjack/static/media/question.8c136d0932e9e830e2ae.svg",
+    "static/media/volume-muted.svg": "/blackjack/static/media/volume-muted.b413c92065342bad9b83b1e4de4f4015.svg",
     "static/media/club.svg": "/blackjack/static/media/club.52f6f984ed82a4af1149.svg",
     "static/media/spade.svg": "/blackjack/static/media/spade.3db27f2b58aafbe35315.svg",
+    "static/media/volume.svg": "/blackjack/static/media/volume.e3e4767db7a52f76863d9988bf59c9ae.svg",
     "static/media/diamond.svg": "/blackjack/static/media/diamond.8462315bad8cb0128085.svg",
     "static/media/heart.svg": "/blackjack/static/media/heart.4d2a5bebf331f838e714.svg",
     "static/media/club-icon.svg": "/blackjack/static/media/club-icon.24117728bbcaa5e8ee5f.svg",
     "static/media/spade-icon.svg": "/blackjack/static/media/spade-icon.50625b47ca728ef293c8.svg",
     "static/media/diamond-icon.svg": "/blackjack/static/media/diamond-icon.a2928826673a84a859b2.svg",
     "static/media/heart-icon.svg": "/blackjack/static/media/heart-icon.afe31e5bc2b2b5f80f1f.svg",
-    "main.87da7368.css.map": "/blackjack/static/css/main.87da7368.css.map",
-    "main.7f84eb3f.js.map": "/blackjack/static/js/main.7f84eb3f.js.map"
+    "main.d6187aa9.css.map": "/blackjack/static/css/main.d6187aa9.css.map",
+    "main.aae47dbd.js.map": "/blackjack/static/js/main.aae47dbd.js.map",
+    "845.1db802c9.chunk.js.map": "/blackjack/static/js/845.1db802c9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.87da7368.css",
-    "static/js/main.7f84eb3f.js"
+    "static/css/main.d6187aa9.css",
+    "static/js/main.aae47dbd.js"
   ]
 }
