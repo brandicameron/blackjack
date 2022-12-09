@@ -40,10 +40,6 @@
   border-radius: 50%;
 }
 
-.chip-bank-button:focus {
-  border-radius: 50%;
-}
-
 .lower-bank {
   transform: translateY(82%);
 }
